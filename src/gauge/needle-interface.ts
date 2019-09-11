@@ -25,7 +25,7 @@ export class Needle {
     outerRadius,
     offset,
     needleColor,
-    outerNeedle,
+    outerNeedle
   ) {
     this.needleValue = needleValue
     this.centralLabel = centralLabel
@@ -52,7 +52,7 @@ export class Needle {
             (this.chartHeight + this.offset * 2) +
             ', ' +
             (this.chartHeight + this.offset) +
-            ')',
+            ')'
         )
     } else {
       this.needleSvg = svg
@@ -67,7 +67,7 @@ export class Needle {
             (this.chartHeight + this.offset * 2) +
             ', ' +
             (this.chartHeight + this.offset) +
-            ')',
+            ')'
         )
     }
   }
@@ -132,18 +132,18 @@ export class Needle {
           {
             x:
               needleWaypointOffset * 1.5 * Math.sin(needleAngle) -
-              needleWaypointOffset / 3 * Math.cos(needleAngle),
+              (needleWaypointOffset / 3) * Math.cos(needleAngle),
             y:
               -(needleWaypointOffset * 1.5) * Math.cos(needleAngle) -
-              needleWaypointOffset / 3 * Math.sin(needleAngle),
+              (needleWaypointOffset / 3) * Math.sin(needleAngle),
           },
           {
             x:
               needleWaypointOffset * 1.5 * Math.sin(needleAngle) +
-              needleWaypointOffset / 3 * Math.cos(needleAngle),
+              (needleWaypointOffset / 3) * Math.cos(needleAngle),
             y:
               -(needleWaypointOffset * 1.5) * Math.cos(needleAngle) +
-              needleWaypointOffset / 3 * Math.sin(needleAngle),
+              (needleWaypointOffset / 3) * Math.sin(needleAngle),
           },
           {
             x: needleHeadLength * Math.sin(needleAngle),

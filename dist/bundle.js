@@ -2,10 +2,10 @@
   'object' == typeof exports && 'object' == typeof module
     ? (module.exports = n())
     : 'function' == typeof define && define.amd
-      ? define([], n)
-      : 'object' == typeof exports
-        ? (exports.GaugeChart = n())
-        : (t.GaugeChart = n())
+    ? define([], n)
+    : 'object' == typeof exports
+    ? (exports.GaugeChart = n())
+    : (t.GaugeChart = n())
 })(this, function() {
   return (function(t) {
     function n(r) {
@@ -165,7 +165,7 @@
               .attr('fill', r)
               .attr(
                 'transform',
-                'translate(' + (n + 2 * e) + ', ' + (n + e) + ')',
+                'translate(' + (n + 2 * e) + ', ' + (n + e) + ')'
               )
           if (u) {
             h = l
@@ -181,25 +181,23 @@
               .attr('opacity', '0.2')
               .attr(
                 'transform',
-                'translate(' + (n + 2 * e) + ', ' + (n + e) + ')',
+                'translate(' + (n + 2 * e) + ', ' + (n + e) + ')'
               )
-            d
-              .on('mouseover', function() {
-                d.style('opacity', 0.8),
-                  p
-                    .transition()
-                    .duration(50)
-                    .ease(l.easeLinear)
-                    .attr('fill', r)
-              })
-              .on('mouseout', function() {
-                d.style('opacity', 1),
-                  p
-                    .transition()
-                    .duration(300)
-                    .ease(l.easeLinear)
-                    .attr('fill', 'transparent')
-              })
+            d.on('mouseover', function() {
+              d.style('opacity', 0.8),
+                p
+                  .transition()
+                  .duration(50)
+                  .ease(l.easeLinear)
+                  .attr('fill', r)
+            }).on('mouseout', function() {
+              d.style('opacity', 1),
+                p
+                  .transition()
+                  .duration(300)
+                  .ease(l.easeLinear)
+                  .attr('fill', 'transparent')
+            })
           }
         }),
           r.forEach(function(r, i) {
@@ -208,8 +206,7 @@
               if (c && f) {
                 var l = n + 2 * e,
                   p = e - n * (1.1 - 1)
-                t
-                  .append('rect')
+                t.append('rect')
                   .attr('x', 0)
                   .attr('y', 0)
                   .attr('fill', f)
@@ -222,10 +219,10 @@
                       ',' +
                       p +
                       ') rotate(' +
-                      180 * u / Math.PI +
+                      (180 * u) / Math.PI +
                       ', 0,' +
                       1.1 * n +
-                      ')',
+                      ')'
                   )
               }
               if (s[i]) {
@@ -236,9 +233,8 @@
                   y = b.getContext('2d')
                 y.font = h + 'px'
                 var _ = y.measureText(s[i]),
-                  m = (u - Math.PI / 2) / Math.PI * (_.width + 4)
-                t
-                  .append('text')
+                  m = ((u - Math.PI / 2) / Math.PI) * (_.width + 4)
+                t.append('text')
                   .attr('x', v + m)
                   .attr('y', g)
                   .text(s[i])
@@ -257,8 +253,7 @@
             .outerRadius(0)
             .startAngle(a(0))
             .endAngle(a(200))
-        t
-          .append('path')
+        t.append('path')
           .attr('d', c)
           .attr('fill', i || o ? 'transparent' : r)
           .attr('transform', 'translate(' + (n + 2 * e) + ', ' + (n + e) + ')')
@@ -275,10 +270,10 @@
         var s = 0.6 * u,
           l = 1.5 * u,
           h = 0.56 * l,
-          d = a[0] ? n / 2 - i - f / 2 - s * a[0].length / 2 : 0,
-          p = a[1] ? n / 2 + i + f / 2 - s * a[1].length / 2 : 0,
+          d = a[0] ? n / 2 - i - f / 2 - (s * a[0].length) / 2 : 0,
+          p = a[1] ? n / 2 + i + f / 2 - (s * a[1].length) / 2 : 0,
           v = r + e + 2 * s,
-          g = n / 2 - h * o.length / 2,
+          g = n / 2 - (h * o.length) / 2,
           b = r + e
         t
           .append('text')
@@ -387,37 +382,37 @@
                 ((n >> 8) & 15) | ((n >> 4) & 240),
                 ((n >> 4) & 15) | (240 & n),
                 ((15 & n) << 4) | (15 & n),
-                1,
+                1
               ))
             : (n = w.exec(t))
-              ? a(parseInt(n[1], 16))
-              : (n = M.exec(t))
-                ? new f(n[1], n[2], n[3], 1)
-                : (n = k.exec(t))
-                  ? new f(
-                      255 * n[1] / 100,
-                      255 * n[2] / 100,
-                      255 * n[3] / 100,
-                      1,
-                    )
-                  : (n = N.exec(t))
-                    ? o(n[1], n[2], n[3], n[4])
-                    : (n = S.exec(t))
-                      ? o(
-                          255 * n[1] / 100,
-                          255 * n[2] / 100,
-                          255 * n[3] / 100,
-                          n[4],
-                        )
-                      : (n = A.exec(t))
-                        ? s(n[1], n[2] / 100, n[3] / 100, 1)
-                        : (n = T.exec(t))
-                          ? s(n[1], n[2] / 100, n[3] / 100, n[4])
-                          : E.hasOwnProperty(t)
-                            ? a(E[t])
-                            : 'transparent' === t
-                              ? new f(NaN, NaN, NaN, 0)
-                              : null
+            ? a(parseInt(n[1], 16))
+            : (n = M.exec(t))
+            ? new f(n[1], n[2], n[3], 1)
+            : (n = k.exec(t))
+            ? new f(
+                (255 * n[1]) / 100,
+                (255 * n[2]) / 100,
+                (255 * n[3]) / 100,
+                1
+              )
+            : (n = N.exec(t))
+            ? o(n[1], n[2], n[3], n[4])
+            : (n = S.exec(t))
+            ? o(
+                (255 * n[1]) / 100,
+                (255 * n[2]) / 100,
+                (255 * n[3]) / 100,
+                n[4]
+              )
+            : (n = A.exec(t))
+            ? s(n[1], n[2] / 100, n[3] / 100, 1)
+            : (n = T.exec(t))
+            ? s(n[1], n[2] / 100, n[3] / 100, n[4])
+            : E.hasOwnProperty(t)
+            ? a(E[t])
+            : 'transparent' === t
+            ? new f(NaN, NaN, NaN, 0)
+            : null
         )
       }
       function a(t) {
@@ -442,7 +437,9 @@
         return (
           r <= 0
             ? (t = n = e = NaN)
-            : e <= 0 || e >= 1 ? (t = n = NaN) : n <= 0 && (t = NaN),
+            : e <= 0 || e >= 1
+            ? (t = n = NaN)
+            : n <= 0 && (t = NaN),
           new d(t, n, e, r)
         )
       }
@@ -464,7 +461,9 @@
             ? ((c =
                 n === u
                   ? (e - a) / f + 6 * (e < a)
-                  : e === u ? (a - n) / f + 2 : (n - e) / f + 4),
+                  : e === u
+                  ? (a - n) / f + 2
+                  : (n - e) / f + 4),
               (f /= s < 0.5 ? u + o : 2 - u - o),
               (c *= 60))
             : (f = s > 0 && s < 1 ? 0 : c),
@@ -481,8 +480,12 @@
         return (
           255 *
           (t < 60
-            ? n + (e - n) * t / 60
-            : t < 180 ? e : t < 240 ? n + (e - n) * (240 - t) / 60 : n)
+            ? n + ((e - n) * t) / 60
+            : t < 180
+            ? e
+            : t < 240
+            ? n + ((e - n) * (240 - t)) / 60
+            : n)
         )
       }
       ;(n.c = r),
@@ -713,7 +716,7 @@
                   (1 === t ? ')' : ', ' + t + ')')
               )
             },
-          }),
+          })
         ),
         e.i(v.a)(
           d,
@@ -732,7 +735,7 @@
               )
             },
             rgb: function() {
-              var t = this.h % 360 + 360 * (this.h < 0),
+              var t = (this.h % 360) + 360 * (this.h < 0),
                 n = isNaN(t) || isNaN(this.s) ? 0 : this.s,
                 e = this.l,
                 r = e + (e < 0.5 ? e : 1 - e) * n,
@@ -741,7 +744,7 @@
                 p(t >= 240 ? t - 240 : t + 120, i, r),
                 p(t, i, r),
                 p(t < 120 ? t + 240 : t - 120, i, r),
-                this.opacity,
+                this.opacity
               )
             },
             displayable: function() {
@@ -753,7 +756,7 @@
                 this.opacity <= 1
               )
             },
-          }),
+          })
         )
     },
     function(t, n, e) {
@@ -788,7 +791,9 @@
             var i =
                 e <= 0
                   ? (e = 0)
-                  : e >= 1 ? ((e = 1), n - 1) : Math.floor(e * n),
+                  : e >= 1
+                  ? ((e = 1), n - 1)
+                  : Math.floor(e * n),
               a = t[i],
               o = t[i + 1],
               u = i > 0 ? t[i - 1] : 2 * a - o,
@@ -815,18 +820,20 @@
           : ('number' === h
               ? u.a
               : 'string' === h
-                ? (l = e.i(r.f)(n)) ? ((n = l), i.b) : f.a
-                : n instanceof r.f
-                  ? i.b
-                  : n instanceof Date
-                    ? o.a
-                    : Array.isArray(n)
-                      ? a.a
-                      : ('function' != typeof n.valueOf &&
-                          'function' != typeof n.toString) ||
-                        isNaN(n)
-                        ? c.a
-                        : u.a)(t, n)
+              ? (l = e.i(r.f)(n))
+                ? ((n = l), i.b)
+                : f.a
+              : n instanceof r.f
+              ? i.b
+              : n instanceof Date
+              ? o.a
+              : Array.isArray(n)
+              ? a.a
+              : ('function' != typeof n.valueOf &&
+                  'function' != typeof n.toString) ||
+                isNaN(n)
+              ? c.a
+              : u.a)(t, n)
       }
     },
     function(t, n, e) {
@@ -913,22 +920,19 @@
               M.enter()
                 .insert('path', '.tick')
                 .attr('class', 'domain')
-                .attr('stroke', '#000'),
+                .attr('stroke', '#000')
             )),
               (k = k.merge(S)),
               (A = A.merge(
                 S.append('line')
                   .attr('stroke', '#000')
-                  .attr(v + '2', p * l),
+                  .attr(v + '2', p * l)
               )),
               (T = T.merge(
                 S.append('text')
                   .attr('fill', '#000')
                   .attr(v, p * b)
-                  .attr(
-                    'dy',
-                    t === Ds ? '0em' : t === Is ? '0.71em' : '0.32em',
-                  ),
+                  .attr('dy', t === Ds ? '0em' : t === Is ? '0.71em' : '0.32em')
               )),
               e !== w &&
                 ((M = M.transition(e)),
@@ -951,7 +955,7 @@
                 'd',
                 t === Fs || t == Ys
                   ? 'M' + p * h + ',' + _ + 'H0.5V' + m + 'H' + p * h
-                  : 'M' + _ + ',' + p * h + 'V0.5H' + m + 'V' + p * h,
+                  : 'M' + _ + ',' + p * h + 'V0.5H' + m + 'V' + p * h
               ),
               k.attr('opacity', 1).attr('transform', function(t) {
                 return g(x(t))
@@ -965,7 +969,7 @@
                 .attr('font-family', 'sans-serif')
                 .attr(
                   'text-anchor',
-                  t === Ys ? 'start' : t === Fs ? 'end' : 'middle',
+                  t === Ys ? 'start' : t === Fs ? 'end' : 'middle'
                 ),
               w.each(function() {
                 this.__axis = x
@@ -1146,7 +1150,7 @@
                     this.addEventListener(
                       u.type,
                       (u.listener = f),
-                      (u.capture = e),
+                      (u.capture = e)
                     ),
                     void (u.value = n)
                   )
@@ -1441,37 +1445,37 @@
                   ((n >> 8) & 15) | ((n >> 4) & 240),
                   ((n >> 4) & 15) | (240 & n),
                   ((15 & n) << 4) | (15 & n),
-                  1,
+                  1
                 ))
               : (n = Jl.exec(t))
-                ? Et(parseInt(n[1], 16))
-                : (n = Kl.exec(t))
-                  ? new zt(n[1], n[2], n[3], 1)
-                  : (n = th.exec(t))
-                    ? new zt(
-                        255 * n[1] / 100,
-                        255 * n[2] / 100,
-                        255 * n[3] / 100,
-                        1,
-                      )
-                    : (n = nh.exec(t))
-                      ? Ct(n[1], n[2], n[3], n[4])
-                      : (n = eh.exec(t))
-                        ? Ct(
-                            255 * n[1] / 100,
-                            255 * n[2] / 100,
-                            255 * n[3] / 100,
-                            n[4],
-                          )
-                        : (n = rh.exec(t))
-                          ? Lt(n[1], n[2] / 100, n[3] / 100, 1)
-                          : (n = ih.exec(t))
-                            ? Lt(n[1], n[2] / 100, n[3] / 100, n[4])
-                            : ah.hasOwnProperty(t)
-                              ? Et(ah[t])
-                              : 'transparent' === t
-                                ? new zt(NaN, NaN, NaN, 0)
-                                : null
+              ? Et(parseInt(n[1], 16))
+              : (n = Kl.exec(t))
+              ? new zt(n[1], n[2], n[3], 1)
+              : (n = th.exec(t))
+              ? new zt(
+                  (255 * n[1]) / 100,
+                  (255 * n[2]) / 100,
+                  (255 * n[3]) / 100,
+                  1
+                )
+              : (n = nh.exec(t))
+              ? Ct(n[1], n[2], n[3], n[4])
+              : (n = eh.exec(t))
+              ? Ct(
+                  (255 * n[1]) / 100,
+                  (255 * n[2]) / 100,
+                  (255 * n[3]) / 100,
+                  n[4]
+                )
+              : (n = rh.exec(t))
+              ? Lt(n[1], n[2] / 100, n[3] / 100, 1)
+              : (n = ih.exec(t))
+              ? Lt(n[1], n[2] / 100, n[3] / 100, n[4])
+              : ah.hasOwnProperty(t)
+              ? Et(ah[t])
+              : 'transparent' === t
+              ? new zt(NaN, NaN, NaN, 0)
+              : null
           )
         }
         function Et(t) {
@@ -1498,7 +1502,9 @@
           return (
             r <= 0
               ? (t = n = e = NaN)
-              : e <= 0 || e >= 1 ? (t = n = NaN) : n <= 0 && (t = NaN),
+              : e <= 0 || e >= 1
+              ? (t = n = NaN)
+              : n <= 0 && (t = NaN),
             new Ut(t, n, e, r)
           )
         }
@@ -1520,7 +1526,9 @@
               ? ((o =
                   n === a
                     ? (e - r) / u + 6 * (e < r)
-                    : e === a ? (r - n) / u + 2 : (n - e) / u + 4),
+                    : e === a
+                    ? (r - n) / u + 2
+                    : (n - e) / u + 4),
                 (u /= c < 0.5 ? a + i : 2 - a - i),
                 (o *= 60))
               : (u = c > 0 && c < 1 ? 0 : o),
@@ -1539,8 +1547,12 @@
           return (
             255 *
             (t < 60
-              ? n + (e - n) * t / 60
-              : t < 180 ? e : t < 240 ? n + (e - n) * (240 - t) / 60 : n)
+              ? n + ((e - n) * t) / 60
+              : t < 180
+              ? e
+              : t < 240
+              ? n + ((e - n) * (240 - t)) / 60
+              : n)
           )
         }
         function Yt(t) {
@@ -1559,7 +1571,7 @@
             116 * o - 16,
             500 * (a - o),
             200 * (o - Bt((0.0193339 * e + 0.119192 * r + 0.9503041 * i) / sh)),
-            t.opacity,
+            t.opacity
           )
         }
         function It(t, n, e, r) {
@@ -1595,7 +1607,7 @@
             n < 0 ? n + 360 : n,
             Math.sqrt(t.a * t.a + t.b * t.b),
             t.l,
-            t.opacity,
+            t.opacity
           )
         }
         function Vt(t, n, e, r) {
@@ -1714,7 +1726,7 @@
               (Mh.style.transform = t),
               (t = Nh.getComputedStyle(
                 kh.appendChild(Mh),
-                null,
+                null
               ).getPropertyValue('transform')),
               kh.removeChild(Mh),
               (t = t.slice(7, -1).split(',')),
@@ -1726,7 +1738,7 @@
             : (Sh ||
                 (Sh = document.createElementNS(
                   'http://www.w3.org/2000/svg',
-                  'g',
+                  'g'
                 )),
               Sh.setAttribute('transform', t),
               (t = Sh.transform.baseVal.consolidate())
@@ -2077,7 +2089,9 @@
               : ((o = this.getAttribute(t)),
                 o === u
                   ? null
-                  : o === r && u === i ? a : (a = n((r = o), (i = u))))
+                  : o === r && u === i
+                  ? a
+                  : (a = n((r = o), (i = u))))
           }
         }
         function Yn(t, n, e) {
@@ -2090,7 +2104,9 @@
               : ((o = this.getAttributeNS(t.space, t.local)),
                 o === u
                   ? null
-                  : o === r && u === i ? a : (a = n((r = o), (i = u))))
+                  : o === r && u === i
+                  ? a
+                  : (a = n((r = o), (i = u))))
           }
         }
         function In(t, n) {
@@ -2184,7 +2200,9 @@
               o = (this.style.removeProperty(t), G(this, t))
             return a === o
               ? null
-              : a === e && o === r ? i : (i = n((e = a), (r = o)))
+              : a === e && o === r
+              ? i
+              : (i = n((e = a), (r = o)))
           }
         }
         function Qn(t) {
@@ -2208,7 +2226,9 @@
               null == u && (this.style.removeProperty(t), (u = G(this, t))),
               o === u
                 ? null
-                : o === r && u === i ? a : (a = n((r = o), (i = u)))
+                : o === r && u === i
+                ? a
+                : (a = n((r = o), (i = u)))
             )
           }
         }
@@ -2311,8 +2331,10 @@
           return (t = +t) < Kd
             ? cp * t * t
             : t < np
-              ? cp * (t -= tp) * t + ep
-              : t < ip ? cp * (t -= rp) * t + ap : cp * (t -= op) * t + up
+            ? cp * (t -= tp) * t + ep
+            : t < ip
+            ? cp * (t -= rp) * t + ap
+            : cp * (t -= op) * t + up
         }
         function ke(t) {
           return ((t *= 2) <= 1 ? 1 - Me(1 - t) : Me(t - 1) + 1) / 2
@@ -2626,7 +2648,9 @@
                 S =
                   'selection' === (t.event.metaKey ? (N = 'overlay') : N)
                     ? Mp
-                    : t.event.altKey ? Sp : Np,
+                    : t.event.altKey
+                    ? Sp
+                    : Np,
                 A = n === Tp ? null : zp[N],
                 T = n === Ap ? null : Lp[N],
                 E = Ce(k),
@@ -2656,7 +2680,7 @@
                 I.on('touchmove.brush', e, !0).on(
                   'touchend.brush touchcancel.brush',
                   o,
-                  !0,
+                  !0
                 )
               else {
                 var B = Yl(t.event.view)
@@ -2702,7 +2726,7 @@
                         c = o.selection,
                         f = n.input(
                           'function' == typeof e ? e.apply(this, arguments) : e,
-                          o.extent,
+                          o.extent
                         ),
                         s = Bh(c, f)
                       return c && f ? t : t(1)
@@ -2713,7 +2737,7 @@
                       o = t.__brush,
                       u = n.input(
                         'function' == typeof e ? e.apply(t, a) : e,
-                        o.extent,
+                        o.extent
                       ),
                       c = i(t, a).beforestart()
                     Nd(t),
@@ -2785,7 +2809,7 @@
           return function(n, e) {
             return t(
               n.source.value + n.target.value,
-              e.source.value + e.target.value,
+              e.source.value + e.target.value
             )
           }
         }
@@ -2862,7 +2886,7 @@
                   return JSON.stringify(t) + ': d[' + n + ']'
                 })
                 .join(',') +
-              '}',
+              '}'
           )
         }
         function Ke(t, n) {
@@ -2969,7 +2993,7 @@
             NaN,
             NaN,
             NaN,
-            NaN,
+            NaN
           )
           return null == t ? r : r.addAll(t)
         }
@@ -3153,7 +3177,7 @@
               s = Yg(u) > 180
             s ^ (c * fg < f && f < c * t)
               ? (o = a[1] * Ug) > cg && (cg = o)
-              : ((f = (f + 360) % 360 - 180),
+              : ((f = ((f + 360) % 360) - 180),
                 s ^ (c * fg < f && f < c * t)
                   ? (o = -a[1] * Ug) < og && (og = o)
                   : (n < og && (og = n), n > cg && (cg = n))),
@@ -3162,10 +3186,10 @@
                   ? Hr(ag, t) > Hr(ag, ug) && (ug = t)
                   : Hr(t, ug) > Hr(ag, ug) && (ag = t)
                 : ug >= ag
-                  ? (t < ag && (ag = t), t > ug && (ug = t))
-                  : t > fg
-                    ? Hr(ag, t) > Hr(ag, ug) && (ug = t)
-                    : Hr(t, ug) > Hr(ag, ug) && (ag = t)
+                ? (t < ag && (ag = t), t > ug && (ug = t))
+                : t > fg
+                ? Hr(ag, t) > Hr(ag, ug) && (ug = t)
+                : Hr(t, ug) > Hr(ag, ug) && (ag = t)
           } else dg.push((pg = [(ag = t), (ug = t)]))
           n < og && (og = n), n > cg && (cg = n), (hg = e), (fg = t)
         }
@@ -3235,9 +3259,9 @@
               Wg(
                 (o = Eg * a - Cg * i) * o +
                   (o = Cg * r - Tg * a) * o +
-                  (o = Tg * i - Eg * r) * o,
+                  (o = Tg * i - Eg * r) * o
               ),
-              Tg * r + Eg * i + Cg * a,
+              Tg * r + Eg * i + Cg * a
             )
           ;(gg += o),
             (mg += o * (Tg + (Tg = r))),
@@ -3285,8 +3309,12 @@
         }
         function ai(t, n, e) {
           return (t %= Og)
-            ? n || e ? sb(ui(t), ci(n, e)) : ui(t)
-            : n || e ? ci(n, e) : ii
+            ? n || e
+              ? sb(ui(t), ci(n, e))
+              : ui(t)
+            : n || e
+            ? ci(n, e)
+            : ii
         }
         function oi(t) {
           return function(n, e) {
@@ -3375,10 +3403,20 @@
           }
           function o(r, i) {
             return Yg(r[0] - t) < Rg
-              ? i > 0 ? 0 : 3
+              ? i > 0
+                ? 0
+                : 3
               : Yg(r[0] - e) < Rg
-                ? i > 0 ? 2 : 1
-                : Yg(r[1] - n) < Rg ? (i > 0 ? 1 : 0) : i > 0 ? 3 : 2
+              ? i > 0
+                ? 2
+                : 1
+              : Yg(r[1] - n) < Rg
+              ? i > 0
+                ? 1
+                : 0
+              : i > 0
+              ? 3
+              : 2
           }
           function u(t, n) {
             return c(t.x, n.x)
@@ -3389,8 +3427,12 @@
             return e !== r
               ? e - r
               : 0 === e
-                ? n[1] - t[1]
-                : 1 === e ? t[0] - n[0] : 2 === e ? t[1] - n[1] : n[0] - t[0]
+              ? n[1] - t[1]
+              : 1 === e
+              ? t[0] - n[0]
+              : 2 === e
+              ? t[1] - n[1]
+              : n[0] - t[0]
           }
           return function(o) {
             function c(t, n) {
@@ -3571,14 +3613,14 @@
                   .filter(function(t) {
                     return Yg(t % g) > Rg
                   })
-                  .map(s),
+                  .map(s)
               )
               .concat(
                 vs(jg(u / v) * v, o, v)
                   .filter(function(t) {
                     return Yg(t % b) > Rg
                   })
-                  .map(l),
+                  .map(l)
               )
           }
           var e,
@@ -3615,7 +3657,7 @@
                       .slice(1),
                     d(f)
                       .reverse()
-                      .slice(1),
+                      .slice(1)
                   ),
                 ],
               }
@@ -3707,8 +3749,8 @@
           var e = t - mb,
             r = n - xb,
             i = Wg(e * e + r * r)
-          ;(ny += i * (mb + t) / 2),
-            (ey += i * (xb + n) / 2),
+          ;(ny += (i * (mb + t)) / 2),
+            (ey += (i * (xb + n)) / 2),
             (ry += i),
             zi((mb = t), (xb = n))
         }
@@ -3728,8 +3770,8 @@
           var e = t - mb,
             r = n - xb,
             i = Wg(e * e + r * r)
-          ;(ny += i * (mb + t) / 2),
-            (ey += i * (xb + n) / 2),
+          ;(ny += (i * (mb + t)) / 2),
+            (ey += (i * (xb + n)) / 2),
             (ry += i),
             (i = xb * t - mb * n),
             (iy += i * (mb + t)),
@@ -3829,7 +3871,7 @@
           return Yg(o) > Rg
             ? Ig(
                 (Vg(n) * (a = Bg(r)) * Vg(e) - Vg(r) * (i = Bg(n)) * Vg(t)) /
-                  (i * a * o),
+                  (i * a * o)
               )
             : (n + r) / 2
         }
@@ -3848,7 +3890,7 @@
               r.point(-zg, i)
           else if (Yg(t[0] - n[0]) > Rg) {
             var a = t[0] < n[0] ? zg : -zg
-            ;(i = e * a / 2), r.point(-a, i), r.point(0, i), r.point(a, i)
+            ;(i = (e * a) / 2), r.point(-a, i), r.point(0, i), r.point(a, i)
           } else r.point(n[0], n[1])
         }
         function Ji(t) {
@@ -3903,7 +3945,7 @@
                 E = A - r,
                 C = T - i,
                 P = y * E - b * C
-              ;(P * P / _ > n ||
+              ;((P * P) / _ > n ||
                 Yg((b * E + y * C) / _ - 0.5) > 0.3 ||
                 o * h + u * d + c * p < xy) &&
                 (e(r, i, a, o, u, c, A, T, N, (m /= M), (x /= M), w, v, g),
@@ -3935,7 +3977,7 @@
                 (m = a[1]),
                 (x = a[2]),
                 my,
-                n,
+                n
               ),
                 n.point(b, y)
             }
@@ -4053,10 +4095,12 @@
                           (S = +t[0][0]),
                           (l = +t[0][1]),
                           (h = +t[1][0]),
-                          (d = +t[1][1]),
+                          (d = +t[1][1])
                         )),
                   a())
-                : null == S ? null : [[S, l], [h, d]]
+                : null == S
+                ? null
+                : [[S, l], [h, d]]
             }),
             (n.scale = function(t) {
               return arguments.length ? ((g = +t), i()) : g
@@ -4133,7 +4177,7 @@
             (e.invert = function(t, n) {
               var e = o - n
               return [
-                Fg(t, Yg(e)) / i * $g(e),
+                (Fg(t, Yg(e)) / i) * $g(e),
                 xr((a - (t * t + e * e) * i * i) / (2 * i)),
               ]
             }),
@@ -4177,7 +4221,7 @@
               i = t(r),
               a = Vg(i),
               o = Bg(i)
-            return [Fg(n * a, r * o), xr(r && e * a / r)]
+            return [Fg(n * a, r * o), xr(r && (e * a) / r)]
           }
         }
         function ha(t, n) {
@@ -4191,8 +4235,8 @@
               null == s
                 ? [[o[0] - n, o[1] - n], [o[0] + n, o[1] + n]]
                 : t === ha
-                  ? [[Math.max(o[0] - n, s), e], [Math.min(o[0] + n, r), i]]
-                  : [[s, Math.max(o[1] - n, e)], [r, Math.min(o[1] + n, i)]],
+                ? [[Math.max(o[0] - n, s), e], [Math.min(o[0] + n, r), i]]
+                : [[s, Math.max(o[1] - n, e)], [r, Math.min(o[1] + n, i)]]
             )
           }
           var e,
@@ -4223,7 +4267,9 @@
                       (r = +t[1][0]),
                       (i = +t[1][1])),
                   n())
-                : null == s ? null : [[s, e], [r, i]]
+                : null == s
+                ? null
+                : [[s, e], [r, i]]
             }),
             n()
           )
@@ -4241,12 +4287,15 @@
           }
           var r = Bg(t),
             i = t === n ? Vg(t) : Hg(r / Bg(n)) / Hg(pa(n) / pa(t)),
-            a = r * Gg(pa(t), i) / i
+            a = (r * Gg(pa(t), i)) / i
           return i
             ? ((e.invert = function(t, n) {
                 var e = a - n,
                   r = $g(i) * Wg(t * t + e * e)
-                return [Fg(t, Yg(e)) / i * $g(e), 2 * Ig(Gg(a / r, 1 / i)) - Lg]
+                return [
+                  (Fg(t, Yg(e)) / i) * $g(e),
+                  2 * Ig(Gg(a / r, 1 / i)) - Lg,
+                ]
               }),
               e)
             : ha
@@ -4267,14 +4316,17 @@
             ? ga
             : ((e.invert = function(t, n) {
                 var e = a - n
-                return [Fg(t, Yg(e)) / i * $g(e), a - $g(i) * Wg(t * t + e * e)]
+                return [
+                  (Fg(t, Yg(e)) / i) * $g(e),
+                  a - $g(i) * Wg(t * t + e * e),
+                ]
               }),
               e)
         }
         function ya(t, n) {
           var e = Bg(n),
             r = Bg(t) * e
-          return [e * Vg(t) / r, Vg(n) / r]
+          return [(e * Vg(t)) / r, Vg(n) / r]
         }
         function _a(t, n, e, r) {
           return 1 === t && 1 === n && 0 === e && 0 === r
@@ -4291,7 +4343,7 @@
         function xa(t, n) {
           var e = Bg(n),
             r = 1 + Bg(t) * e
-          return [e * Vg(t) / r, Vg(n) / r]
+          return [(e * Vg(t)) / r, Vg(n) / r]
         }
         function wa(t, n) {
           return [Hg(Zg((Lg + n) / 2)), -t]
@@ -4439,8 +4491,8 @@
             s = u - i,
             l = Math.sqrt(c * c + f * f)
           return {
-            x: (e + a + c / l * s) / 2,
-            y: (r + o + f / l * s) / 2,
+            x: (e + a + (c / l) * s) / 2,
+            y: (r + o + (f / l) * s) / 2,
             r: (l + i + u) / 2,
           }
         }
@@ -4696,8 +4748,8 @@
             }
             b.push((o = { value: s, dice: c < f, children: y.slice(_, m) })),
               o.dice
-                ? i_(o, e, r, i, w ? (r += f * s / w) : a)
-                : l_(o, e, r, w ? (e += c * s / w) : i, a),
+                ? i_(o, e, r, i, w ? (r += (f * s) / w) : a)
+                : l_(o, e, r, w ? (e += (c * s) / w) : i, a),
               (w -= s),
               (_ = m)
           }
@@ -5111,10 +5163,10 @@
           return 10 === t
             ? Ho
             : t === Math.E
-              ? Math.exp
-              : function(n) {
-                  return Math.pow(t, n)
-                }
+            ? Math.exp
+            : function(n) {
+                return Math.pow(t, n)
+              }
         }
         function Vo(t) {
           return t === Math.E
@@ -5191,7 +5243,7 @@
               )
                 return r
               null == n && (n = 10)
-              var u = Math.max(1, i * n / e.ticks().length)
+              var u = Math.max(1, (i * n) / e.ticks().length)
               return function(t) {
                 var n = t / o(Math.round(a(t)))
                 return n * i < i - 0.5 && (n *= i), n <= u ? r(t) : ''
@@ -5206,7 +5258,7 @@
                   ceil: function(t) {
                     return o(Math.ceil(a(t)))
                   },
-                }),
+                })
               )
             }),
             (e.copy = function() {
@@ -5322,7 +5374,11 @@
               var n = o.indexOf(t)
               return n < 0
                 ? [NaN, NaN]
-                : n < 1 ? [e, a[0]] : n >= i ? [a[i - 1], r] : [a[n - 1], a[n]]
+                : n < 1
+                ? [e, a[0]]
+                : n >= i
+                ? [a[i - 1], r]
+                : [a[n - 1], a[n]]
             }),
             (t.copy = function() {
               return tu()
@@ -5401,7 +5457,7 @@
                   if (t >= t)
                     if (r < 0) for (; ++r <= 0; ) for (; n(t, -1), !e(t); );
                     else for (; --r >= 0; ) for (; n(t, 1), !e(t); );
-                },
+                }
               )
             }),
             e &&
@@ -5426,7 +5482,7 @@
                               }
                             : function(n) {
                                 return i.count(0, n) % t == 0
-                              },
+                              }
                         )
                       : i
                     : null
@@ -5438,7 +5494,7 @@
         function ru(t) {
           return eu(
             function(n) {
-              n.setDate(n.getDate() - (n.getDay() + 7 - t) % 7),
+              n.setDate(n.getDate() - ((n.getDay() + 7 - t) % 7)),
                 n.setHours(0, 0, 0, 0)
             },
             function(t, n) {
@@ -5449,13 +5505,13 @@
                 (n - t - (n.getTimezoneOffset() - t.getTimezoneOffset()) * nm) /
                 em
               )
-            },
+            }
           )
         }
         function iu(t) {
           return eu(
             function(n) {
-              n.setUTCDate(n.getUTCDate() - (n.getUTCDay() + 7 - t) % 7),
+              n.setUTCDate(n.getUTCDate() - ((n.getUTCDay() + 7 - t) % 7)),
                 n.setUTCHours(0, 0, 0, 0)
             },
             function(t, n) {
@@ -5463,7 +5519,7 @@
             },
             function(t, n) {
               return (n - t) / em
-            },
+            }
           )
         }
         function au(t) {
@@ -5510,15 +5566,16 @@
               var i = uu(1900)
               if (r(i, t, (e += ''), 0) != e.length) return null
               if (
-                ('p' in i && (i.H = i.H % 12 + 12 * i.p), 'W' in i || 'U' in i)
+                ('p' in i && (i.H = (i.H % 12) + 12 * i.p),
+                'W' in i || 'U' in i)
               ) {
                 'w' in i || (i.w = 'W' in i ? 1 : 0)
                 var a = 'Z' in i ? ou(uu(i.y)).getUTCDay() : n(uu(i.y)).getDay()
                 ;(i.m = 0),
                   (i.d =
                     'W' in i
-                      ? (i.w + 6) % 7 + 7 * i.W - (a + 5) % 7
-                      : i.w + 7 * i.U - (a + 6) % 7)
+                      ? ((i.w + 6) % 7) + 7 * i.W - ((a + 5) % 7)
+                      : i.w + 7 * i.U - ((a + 6) % 7))
               }
               return 'Z' in i
                 ? ((i.H += (i.Z / 100) | 0), (i.M += i.Z % 100), ou(i))
@@ -5937,12 +5994,18 @@
             return (u(i) < i
               ? v
               : o(i) < i
-                ? g
-                : a(i) < i
-                  ? b
-                  : r(i) < i
-                    ? y
-                    : n(i) < i ? (e(i) < i ? _ : m) : t(i) < i ? x : w)(i)
+              ? g
+              : a(i) < i
+              ? b
+              : r(i) < i
+              ? y
+              : n(i) < i
+              ? e(i) < i
+                ? _
+                : m
+              : t(i) < i
+              ? x
+              : w)(i)
           }
           function l(n, e, r, a) {
             if ((null == n && (n = 10), 'number' == typeof n)) {
@@ -5953,10 +6016,10 @@
               u === M.length
                 ? ((a = i(e / hx, r / hx, n)), (n = t))
                 : u
-                  ? ((u = M[o / M[u - 1][2] < M[u][2] / o ? u - 1 : u]),
-                    (a = u[1]),
-                    (n = u[0]))
-                  : ((a = i(e, r, n)), (n = c))
+                ? ((u = M[o / M[u - 1][2] < M[u][2] / o ? u - 1 : u]),
+                  (a = u[1]),
+                  (n = u[0]))
+                : ((a = i(e, r, n)), (n = c))
             }
             return null == a ? n : n.every(a)
           }
@@ -6173,7 +6236,7 @@
                 +i.apply(this, ((u[0] = c), u)),
                 +a.apply(this, u),
                 +i.apply(this, ((u[0] = f), u)),
-                +a.apply(this, u),
+                +a.apply(this, u)
               ),
               n)
             )
@@ -6238,7 +6301,7 @@
             (t._x0 + 2 * t._x1) / 3,
             (t._y0 + 2 * t._y1) / 3,
             (t._x0 + 4 * t._x1 + n) / 6,
-            (t._y0 + 4 * t._y1 + e) / 6,
+            (t._y0 + 4 * t._y1 + e) / 6
           )
         }
         function qc(t) {
@@ -6260,7 +6323,7 @@
             t._x2 + t._k * (t._x1 - n),
             t._y2 + t._k * (t._y1 - e),
             t._x2,
-            t._y2,
+            t._y2
           )
         }
         function Ic(t, n) {
@@ -6319,7 +6382,7 @@
         }
         function Zc(t, n) {
           var e = t._x1 - t._x0
-          return e ? (3 * (t._y1 - t._y0) / e - n) / 2 : n
+          return e ? ((3 * (t._y1 - t._y0)) / e - n) / 2 : n
         }
         function Qc(t, n, e) {
           var r = t._x0,
@@ -6446,7 +6509,9 @@
         }
         function mf(t, n, e, r) {
           t[0] || t[1]
-            ? t.left === e ? (t[1] = r) : (t[0] = r)
+            ? t.left === e
+              ? (t[1] = r)
+              : (t[0] = r)
             : ((t[0] = r), (t.left = n), (t.right = e))
         }
         function xf(t, n, e, r, i) {
@@ -6642,14 +6707,14 @@
                           Math.abs(p - t) < Qw && r - v > Qw
                             ? [t, Math.abs(l - t) < Qw ? h : r]
                             : Math.abs(v - r) < Qw && e - p > Qw
-                              ? [Math.abs(h - r) < Qw ? l : e, r]
-                              : Math.abs(p - e) < Qw && v - n > Qw
-                                ? [e, Math.abs(l - e) < Qw ? h : n]
-                                : Math.abs(v - n) < Qw && p - t > Qw
-                                  ? [Math.abs(h - n) < Qw ? l : t, n]
-                                  : null,
-                        ),
-                      ) - 1,
+                            ? [Math.abs(h - r) < Qw ? l : e, r]
+                            : Math.abs(p - e) < Qw && v - n > Qw
+                            ? [e, Math.abs(l - e) < Qw ? h : n]
+                            : Math.abs(v - n) < Qw && p - t > Qw
+                            ? [Math.abs(h - n) < Qw ? l : t, n]
+                            : null
+                        )
+                      ) - 1
                     ),
                     ++f)
               f && (b = !1)
@@ -6674,7 +6739,7 @@
                 $w.push(_f((o = b.site), w, M)) - 1,
                 $w.push(_f(o, M, k)) - 1,
                 $w.push(_f(o, k, N)) - 1,
-                $w.push(_f(o, N, w)) - 1,
+                $w.push(_f(o, N, w)) - 1
               )
             }
           }
@@ -6792,7 +6857,9 @@
               if (!((i = a - Yf(u, o)) > Qw)) {
                 r > -Qw
                   ? ((n = u.P), (e = u))
-                  : i > -Qw ? ((n = u), (e = u.N)) : (n = e = u)
+                  : i > -Qw
+                  ? ((n = u), (e = u.N))
+                  : (n = e = u)
                 break
               }
               if (!u.R) {
@@ -6853,7 +6920,7 @@
           return l
             ? (-h +
                 Math.sqrt(
-                  h * h - 2 * l * (s * s / (-2 * f) - c + f / 2 + i - a / 2),
+                  h * h - 2 * l * ((s * s) / (-2 * f) - c + f / 2 + i - a / 2)
                 )) /
                 l +
                 r
@@ -6932,7 +6999,7 @@
           return this.__zoom || nM
         }
         function Zf() {
-          return -t.event.deltaY * (t.event.deltaMode ? 120 : 1) / 500
+          return (-t.event.deltaY * (t.event.deltaMode ? 120 : 1)) / 500
         }
         function Qf() {
           return 'ontouchstart' in this
@@ -7061,7 +7128,9 @@
               (e =
                 (i = arguments.length) < 2
                   ? ((n = t), (t = 0), 1)
-                  : i < 3 ? 1 : +e)
+                  : i < 3
+                  ? 1
+                  : +e)
             for (
               var r = -1,
                 i = 0 | Math.max(0, Math.ceil((n - t) / e)),
@@ -7177,15 +7246,13 @@
               (t = hs.call(t, os).sort(Jf)),
               Math.ceil(
                 (e - n) /
-                  (2 *
-                    (ws(t, 0.75) - ws(t, 0.25)) *
-                    Math.pow(t.length, -1 / 3)),
+                  (2 * (ws(t, 0.75) - ws(t, 0.25)) * Math.pow(t.length, -1 / 3))
               )
             )
           },
           ks = function(t, n, e) {
             return Math.ceil(
-              (e - n) / (3.5 * cs(t) * Math.pow(t.length, -1 / 3)),
+              (e - n) / (3.5 * cs(t) * Math.pow(t.length, -1 / 3))
             )
           },
           Ns = function(t, n) {
@@ -7690,11 +7757,16 @@
             }
             return this.each(
               (null == n
-                ? e.local ? D : U
-                : 'function' == typeof n ? (e.local ? B : F) : e.local ? I : Y)(
-                e,
-                n,
-              ),
+                ? e.local
+                  ? D
+                  : U
+                : 'function' == typeof n
+                ? e.local
+                  ? B
+                  : F
+                : e.local
+                ? I
+                : Y)(e, n)
             )
           },
           Nl = function(t) {
@@ -7710,15 +7782,15 @@
                   (null == n ? j : 'function' == typeof n ? H : X)(
                     t,
                     n,
-                    null == e ? '' : e,
-                  ),
+                    null == e ? '' : e
+                  )
                 )
               : G(this.node(), t)
           },
           Al = function(t, n) {
             return arguments.length > 1
               ? this.each(
-                  (null == n ? V : 'function' == typeof n ? W : $)(t, n),
+                  (null == n ? V : 'function' == typeof n ? W : $)(t, n)
                 )
               : this.node()[t]
           }
@@ -7750,14 +7822,14 @@
           El = function(t) {
             return arguments.length
               ? this.each(
-                  null == t ? it : ('function' == typeof t ? ot : at)(t),
+                  null == t ? it : ('function' == typeof t ? ot : at)(t)
                 )
               : this.node().textContent
           },
           Cl = function(t) {
             return arguments.length
               ? this.each(
-                  null == t ? ut : ('function' == typeof t ? ft : ct)(t),
+                  null == t ? ut : ('function' == typeof t ? ft : ct)(t)
                 )
               : this.node().innerHTML
           },
@@ -7779,7 +7851,7 @@
             return this.select(function() {
               return this.insertBefore(
                 e.apply(this, arguments),
-                r.apply(this, arguments) || null,
+                r.apply(this, arguments) || null
               )
             })
           },
@@ -7831,7 +7903,7 @@
             return 'string' == typeof t
               ? new bt(
                   [[document.querySelector(t)]],
-                  [document.documentElement],
+                  [document.documentElement]
                 )
               : new bt([[t]], Dl)
           },
@@ -7839,7 +7911,7 @@
             return 'string' == typeof t
               ? new bt(
                   [document.querySelectorAll(t)],
-                  [document.documentElement],
+                  [document.documentElement]
                 )
               : new bt([null == t ? [] : t], Dl)
           },
@@ -7877,8 +7949,7 @@
         }
         var Gl = function() {
             function n(t) {
-              t
-                .on('mousedown.drag', e)
+              t.on('mousedown.drag', e)
                 .filter(Nt)
                 .on('touchstart.drag', a)
                 .on('touchmove.drag', o)
@@ -7893,7 +7964,7 @@
                   p.apply(this, arguments),
                   rl,
                   this,
-                  arguments,
+                  arguments
                 )
                 n &&
                   (Yl(t.event.view)
@@ -7971,7 +8042,7 @@
                       null != (t.event.subject = u = v.apply(a, o)) &&
                       ((c = u.x - s[0] || 0), (f = u.y - s[1] || 0), !0)
                     )
-                  },
+                  }
                 )
               )
                 return function t(h) {
@@ -7997,11 +8068,11 @@
                       s[1] + f,
                       s[0] - p[0],
                       s[1] - p[1],
-                      l,
+                      l
                     ),
                     l.apply,
                     l,
-                    [h, a, o],
+                    [h, a, o]
                   )
                 }
             }
@@ -8258,7 +8329,7 @@
                     (1 === t ? ')' : ', ' + t + ')')
                 )
               },
-            }),
+            })
           ),
           Vl(
             Ut,
@@ -8277,7 +8348,7 @@
                 )
               },
               rgb: function() {
-                var t = this.h % 360 + 360 * (this.h < 0),
+                var t = (this.h % 360) + 360 * (this.h < 0),
                   n = isNaN(t) || isNaN(this.s) ? 0 : this.s,
                   e = this.l,
                   r = e + (e < 0.5 ? e : 1 - e) * n,
@@ -8286,7 +8357,7 @@
                   Dt(t >= 240 ? t - 240 : t + 120, i, r),
                   Dt(t, i, r),
                   Dt(t < 120 ? t + 240 : t - 120, i, r),
-                  this.opacity,
+                  this.opacity
                 )
               },
               displayable: function() {
@@ -8298,7 +8369,7 @@
                   this.opacity <= 1
                 )
               },
-            }),
+            })
           )
         var oh = Math.PI / 180,
           uh = 180 / Math.PI,
@@ -8318,7 +8389,7 @@
                 this.l + 18 * (null == t ? 1 : t),
                 this.a,
                 this.b,
-                this.opacity,
+                this.opacity
               )
             },
             darker: function(t) {
@@ -8326,7 +8397,7 @@
                 this.l - 18 * (null == t ? 1 : t),
                 this.a,
                 this.b,
-                this.opacity,
+                this.opacity
               )
             },
             rgb: function() {
@@ -8341,11 +8412,11 @@
                   Xt(3.2404542 * n - 1.5371385 * t - 0.4985314 * e),
                   Xt(-0.969266 * n + 1.8760108 * t + 0.041556 * e),
                   Xt(0.0556434 * n - 0.2040259 * t + 1.0572252 * e),
-                  this.opacity,
+                  this.opacity
                 )
               )
             },
-          }),
+          })
         ),
           Vl(
             $t,
@@ -8356,7 +8427,7 @@
                   this.h,
                   this.c,
                   this.l + 18 * (null == t ? 1 : t),
-                  this.opacity,
+                  this.opacity
                 )
               },
               darker: function(t) {
@@ -8364,13 +8435,13 @@
                   this.h,
                   this.c,
                   this.l - 18 * (null == t ? 1 : t),
-                  this.opacity,
+                  this.opacity
                 )
               },
               rgb: function() {
                 return Yt(this).rgb()
               },
-            }),
+            })
           )
         var vh = -0.14861,
           gh = 1.78277,
@@ -8406,10 +8477,10 @@
                 255 * (n + e * (vh * r + gh * i)),
                 255 * (n + e * (bh * r + yh * i)),
                 255 * (n + e * (_h * r)),
-                this.opacity,
+                this.opacity
               )
             },
-          }),
+          })
         )
         var Mh,
           kh,
@@ -8423,7 +8494,9 @@
               var r =
                   e <= 0
                     ? (e = 0)
-                    : e >= 1 ? ((e = 1), n - 1) : Math.floor(e * n),
+                    : e >= 1
+                    ? ((e = 1), n - 1)
+                    : Math.floor(e * n),
                 i = t[r],
                 a = t[r + 1],
                 o = r > 0 ? t[r - 1] : 2 * i - a,
@@ -8526,14 +8599,18 @@
               (i = r.index) > a &&
                 ((i = n.slice(a, i)), u[o] ? (u[o] += i) : (u[++o] = i)),
                 (e = e[0]) === (r = r[0])
-                  ? u[o] ? (u[o] += r) : (u[++o] = r)
+                  ? u[o]
+                    ? (u[o] += r)
+                    : (u[++o] = r)
                   : ((u[++o] = null), c.push({ i: o, x: Uh(e, r) })),
                 (a = Ih.lastIndex)
             return (
               a < n.length &&
                 ((i = n.slice(a)), u[o] ? (u[o] += i) : (u[++o] = i)),
               u.length < 2
-                ? c[0] ? un(c[0].x) : on(n)
+                ? c[0]
+                  ? un(c[0].x)
+                  : on(n)
                 : ((n = c.length),
                   function(t) {
                     for (var e, r = 0; r < n; ++r) u[(e = c[r]).i] = e.x(t)
@@ -8549,18 +8626,20 @@
               : ('number' === r
                   ? Uh
                   : 'string' === r
-                    ? (e = Tt(n)) ? ((n = e), Rh) : Fh
-                    : n instanceof Tt
-                      ? Rh
-                      : n instanceof Date
-                        ? Oh
-                        : Array.isArray(n)
-                          ? qh
-                          : ('function' != typeof n.valueOf &&
-                              'function' != typeof n.toString) ||
-                            isNaN(n)
-                            ? Dh
-                            : Uh)(t, n)
+                  ? (e = Tt(n))
+                    ? ((n = e), Rh)
+                    : Fh
+                  : n instanceof Tt
+                  ? Rh
+                  : n instanceof Date
+                  ? Oh
+                  : Array.isArray(n)
+                  ? qh
+                  : ('function' != typeof n.valueOf &&
+                      'function' != typeof n.toString) ||
+                    isNaN(n)
+                  ? Dh
+                  : Uh)(t, n)
           },
           jh = function(t, n) {
             return (
@@ -8627,8 +8706,8 @@
                 (e = function(t) {
                   var n = t * r,
                     e = ln(g),
-                    u = o / (2 * d) * (e * dn(Wh * n + g) - hn(g))
-                  return [i + u * s, a + u * l, o * e / ln(Wh * n + g)]
+                    u = (o / (2 * d)) * (e * dn(Wh * n + g) - hn(g))
+                  return [i + u * s, a + u * l, (o * e) / ln(Wh * n + g)]
                 })
             }
             return (e.duration = 1e3 * r), e
@@ -8686,7 +8765,7 @@
                   r.stop(), t(e + n)
                 },
                 n,
-                e,
+                e
               ),
               r
             )
@@ -8703,7 +8782,7 @@
                     ;(o += i), r.restart(a, (i += n), e), t(o)
                   },
                   n,
-                  e,
+                  e
                 ),
                 r)
           },
@@ -8777,7 +8856,11 @@
             var e
             return ('number' == typeof n
               ? Uh
-              : n instanceof Tt ? Rh : (e = Tt(n)) ? ((n = e), Rh) : Fh)(t, n)
+              : n instanceof Tt
+              ? Rh
+              : (e = Tt(n))
+              ? ((n = e), Rh)
+              : Fh)(t, n)
           },
           Ed = function(t, n) {
             var e = Gs(t),
@@ -8787,8 +8870,8 @@
               'function' == typeof n
                 ? (e.local ? Yn : Dn)(e, r, zn(this, 'attr.' + t, n))
                 : null == n
-                  ? (e.local ? qn : Ln)(e)
-                  : (e.local ? Un : On)(e, r, n + ''),
+                ? (e.local ? qn : Ln)(e)
+                : (e.local ? Un : On)(e, r, n + '')
             )
           },
           Cd = function(t, n) {
@@ -8932,7 +9015,7 @@
                   'function' == typeof n
                     ? Kn(t, r, zn(this, 'style.' + t, n))
                     : Jn(t, r, n + ''),
-                  e,
+                  e
                 )
           },
           jd = function(t, n, e) {
@@ -8947,7 +9030,7 @@
               'text',
               'function' == typeof t
                 ? ee(zn(this, 'text', t))
-                : ne(null == t ? '' : t + ''),
+                : ne(null == t ? '' : t + '')
             )
           },
           Hd = function() {
@@ -9286,7 +9369,7 @@
                     v.push(
                       M.value < k.value
                         ? { source: k, target: M }
-                        : { source: M, target: k },
+                        : { source: M, target: k }
                     )
                 }
               return i ? v.sort(i) : v
@@ -9420,7 +9503,7 @@
                   Math.abs(this._y1 - f) > 1e-6) &&
                 (this._ += 'L' + c + ',' + f),
               e &&
-                (l < 0 && (l = l % Gp + Gp),
+                (l < 0 && (l = (l % Gp) + Gp),
                 l > Vp
                   ? (this._ +=
                       'A' +
@@ -9748,7 +9831,7 @@
                           return o(n[t])
                         })
                         .join(t)
-                    }),
+                    })
                   )
                   .join('\n')
               )
@@ -9762,7 +9845,9 @@
             function o(t) {
               return null == t
                 ? ''
-                : u.test((t += '')) ? '"' + t.replace(/\"/g, '""') + '"' : t
+                : u.test((t += ''))
+                ? '"' + t.replace(/\"/g, '""') + '"'
+                : t
             }
             var u = new RegExp('["' + t + '\n\r]'),
               c = t.charCodeAt(0)
@@ -9879,8 +9964,8 @@
             return arguments.length
               ? this.cover(+t[0][0], +t[0][1]).cover(+t[1][0], +t[1][1])
               : isNaN(this._x0)
-                ? void 0
-                : [[this._x0, this._y0], [this._x1, this._y1]]
+              ? void 0
+              : [[this._x0, this._y0], [this._x1, this._y1]]
           },
           yv = function(t, n, e, r, i) {
             ;(this.node = t),
@@ -9931,7 +10016,7 @@
                     new yv(v[3], g, b, o, u),
                     new yv(v[2], i, b, g, u),
                     new yv(v[1], g, a, o, b),
-                    new yv(v[0], i, a, g, b),
+                    new yv(v[0], i, a, g, b)
                   ),
                     (f = ((n >= b) << 1) | (t >= g)) &&
                       ((c = p[p.length - 1]),
@@ -9995,13 +10080,13 @@
               r
                 ? (i ? (r.next = i) : delete r.next, this)
                 : n
-                  ? (i ? (n[l] = i) : delete n[l],
-                    (d = n[0] || n[1] || n[2] || n[3]) &&
-                      d === (n[3] || n[2] || n[1] || n[0]) &&
-                      !d.length &&
-                      (e ? (e[h] = d) : (this._root = d)),
-                    this)
-                  : ((this._root = i), this)
+                ? (i ? (n[l] = i) : delete n[l],
+                  (d = n[0] || n[1] || n[2] || n[3]) &&
+                    d === (n[3] || n[2] || n[1] || n[0]) &&
+                    !d.length &&
+                    (e ? (e[h] = d) : (this._root = d)),
+                  this)
+                : ((this._root = i), this)
             )
           },
           xv = function() {
@@ -10039,7 +10124,7 @@
                   (r = n.x0),
                   (i = n.y0),
                   (a = n.x1),
-                  (o = n.y1),
+                  (o = n.y1)
                 ) &&
                 c.length
               ) {
@@ -10059,7 +10144,7 @@
             for (
               this._root &&
               e.push(
-                new yv(this._root, this._x0, this._y0, this._x1, this._y1),
+                new yv(this._root, this._x0, this._y0, this._x1, this._y1)
               );
               (n = e.pop());
 
@@ -10099,7 +10184,7 @@
               this._x0,
               this._y0,
               this._x1,
-              this._y1,
+              this._y1
             ),
             r = this._root
           if (!r) return e
@@ -10147,7 +10232,7 @@
                     g < d * d &&
                       (0 === p && ((p = dv()), (g += p * p)),
                       0 === v && ((v = dv()), (g += v * v)),
-                      (g = (d - (g = Math.sqrt(g))) / g * o),
+                      (g = ((d - (g = Math.sqrt(g))) / g) * o),
                       (c.vx += (p *= g) * (d = (u *= u) / (h + u))),
                       (c.vy += (v *= g) * d),
                       (a.vx -= p * (d = 1 - d)),
@@ -10214,7 +10299,7 @@
                     (f = c.x + c.vx - a.x - a.vx || dv()),
                     (l = c.y + c.vy - a.y - a.vy || dv()),
                     (h = Math.sqrt(f * f + l * l)),
-                    (h = (h - u[v]) / h * n * o[v]),
+                    (h = ((h - u[v]) / h) * n * o[v]),
                     (f *= h),
                     (l *= h),
                     (c.vx -= f * (d = s[v])),
@@ -10433,14 +10518,14 @@
                 c = t.y - a.y,
                 h = r - n,
                 d = i * i + c * c
-              if (h * h / l < d)
+              if ((h * h) / l < d)
                 return (
                   d < s &&
                     (0 === i && ((i = dv()), (d += i * i)),
                     0 === c && ((c = dv()), (d += c * c)),
                     d < f && (d = Math.sqrt(f * d)),
-                    (a.vx += i * t.value * o / d),
-                    (a.vy += c * t.value * o / d)),
+                    (a.vx += (i * t.value * o) / d),
+                    (a.vy += (c * t.value * o) / d)),
                   !0
                 )
               if (!(t.length || d >= s)) {
@@ -10450,7 +10535,7 @@
                   d < f && (d = Math.sqrt(f * d)))
                 do {
                   t.data !== a &&
-                    ((h = u[t.data.index] * o / d),
+                    ((h = (u[t.data.index] * o) / d),
                     (a.vx += i * h),
                     (a.vy += c * h))
                 } while ((t = t.next))
@@ -10558,7 +10643,7 @@
           Uv = function(t, n) {
             if (
               (e = (t = n ? t.toExponential(n - 1) : t.toExponential()).indexOf(
-                'e',
+                'e'
               )) < 0
             )
               return null
@@ -10619,12 +10704,12 @@
             return a === o
               ? r
               : a > o
-                ? r + new Array(a - o + 1).join('0')
-                : a > 0
-                  ? r.slice(0, a) + '.' + r.slice(a)
-                  : '0.' +
-                    new Array(1 - a).join('0') +
-                    Uv(t, Math.max(0, n + a - 1))[0]
+              ? r + new Array(a - o + 1).join('0')
+              : a > 0
+              ? r.slice(0, a) + '.' + r.slice(a)
+              : '0.' +
+                new Array(1 - a).join('0') +
+                Uv(t, Math.max(0, n + a - 1))[0]
           },
           jv = function(t, n) {
             var e = Uv(t, n)
@@ -10634,8 +10719,8 @@
             return i < 0
               ? '0.' + new Array(-i).join('0') + r
               : r.length > i + 1
-                ? r.slice(0, i + 1) + '.' + r.slice(i + 1)
-                : r + new Array(i - r.length + 2).join('0')
+              ? r.slice(0, i + 1) + '.' + r.slice(i + 1)
+              : r + new Array(i - r.length + 2).join('0')
           },
           Xv = {
             '': Fv,
@@ -10734,8 +10819,12 @@
                     x && 0 == +t && (x = !1),
                     (s =
                       (x
-                        ? '(' === f ? f : '-'
-                        : '-' === f || '(' === f ? '' : f) + s),
+                        ? '(' === f
+                          ? f
+                          : '-'
+                        : '-' === f || '(' === f
+                        ? ''
+                        : f) + s),
                     (m =
                       m +
                       ('s' === v ? $v[8 + Tv / 3] : '') +
@@ -10752,10 +10841,12 @@
                 d && !l && (t = r(t, 1 / 0))
                 var w = s.length + t.length + m.length,
                   M = w < h ? new Array(h - w + 1).join(e) : ''
-                switch ((d &&
-                  l &&
-                  ((t = r(M + t, M.length ? h - m.length : 1 / 0)), (M = '')),
-                c)) {
+                switch (
+                  (d &&
+                    l &&
+                    ((t = r(M + t, M.length ? h - m.length : 1 / 0)), (M = '')),
+                  c)
+                ) {
                   case '<':
                     t = s + t + m + M
                     break
@@ -10784,18 +10875,20 @@
                   '$' === s
                     ? i[0]
                     : '#' === s && /[boxX]/.test(v)
-                      ? '0' + v.toLowerCase()
-                      : '',
+                    ? '0' + v.toLowerCase()
+                    : '',
                 b = '$' === s ? i[1] : /[%p]/.test(v) ? u : '',
                 y = Xv[v],
                 _ = !v || /[defgprs%]/.test(v)
               return (
                 (p =
                   null == p
-                    ? v ? 6 : 12
+                    ? v
+                      ? 6
+                      : 12
                     : /[gprs]/.test(v)
-                      ? Math.max(1, Math.min(21, p))
-                      : Math.max(0, Math.min(20, p))),
+                    ? Math.max(1, Math.min(21, p))
+                    : Math.max(0, Math.min(20, p))),
                 (n.toString = function() {
                   return t + ''
                 }),
@@ -10827,7 +10920,7 @@
             return Math.max(
               0,
               3 * Math.max(-8, Math.min(8, Math.floor(Dv(n) / 3))) -
-                Dv(Math.abs(t)),
+                Dv(Math.abs(t))
             )
           },
           Jv = function(t, n) {
@@ -10991,7 +11084,9 @@
                 (ab.lineEnd = Fr),
                 tb < 0
                   ? ((ag = -(ug = 180)), (og = -(cg = 90)))
-                  : ib > Rg ? (cg = 90) : ib < -Rg && (og = -90),
+                  : ib > Rg
+                  ? (cg = 90)
+                  : ib < -Rg && (og = -90),
                 (pg[0] = ag),
                 (pg[1] = ug)
             },
@@ -11496,7 +11591,11 @@
             result: function() {
               var t = oy
                 ? [iy / oy, ay / oy]
-                : ry ? [ny / ry, ey / ry] : ty ? [Jb / ty, Kb / ty] : [NaN, NaN]
+                : ry
+                ? [ny / ry, ey / ry]
+                : ty
+                ? [Jb / ty, Kb / ty]
+                : [NaN, NaN]
               return (Jb = Kb = ty = ny = ey = ry = iy = ay = oy = 0), t
             },
           }
@@ -11747,7 +11846,7 @@
             },
             Wi,
             Qi,
-            [-zg, -Lg],
+            [-zg, -Lg]
           ),
           yy = function(t, n) {
             function e(e, r, i, a) {
@@ -11767,8 +11866,12 @@
                     p = [l, h],
                     v = r(l, h),
                     g = c
-                      ? v ? 0 : o(l, h)
-                      : v ? o(l + (l < 0 ? zg : -zg), h) : 0
+                      ? v
+                        ? 0
+                        : o(l, h)
+                      : v
+                      ? o(l + (l < 0 ? zg : -zg), h)
+                      : 0
                   if (
                     (!n && (u = i = v) && t.lineStart(),
                     v !== i &&
@@ -11818,8 +11921,8 @@
                 f = o[0],
                 s = c - f * f
               if (!s) return !e && t
-              var l = u * c / s,
-                h = -u * f / s,
+              var l = (u * c) / s,
+                h = (-u * f) / s,
                 d = Lr(a, o),
                 p = Or(a, l)
               qr(p, Or(o, h))
@@ -11955,7 +12058,9 @@
                   i = (t[1] - e[1]) / n
                 return (i >= 0.12 && i < 0.234 && r >= -0.425 && r < -0.214
                   ? f
-                  : i >= 0.166 && i < 0.234 && r >= -0.214 && r < -0.115 ? s : c
+                  : i >= 0.166 && i < 0.234 && r >= -0.214 && r < -0.115
+                  ? s
+                  : c
                 ).invert(t)
               }),
               (t.stream = function(t) {
@@ -12094,10 +12199,12 @@
                             (d = +i[0][0]),
                             (n = +i[0][1]),
                             (e = +i[1][0]),
-                            (r = +i[1][1]),
+                            (r = +i[1][1])
                           )),
                     t())
-                  : null == d ? null : [[d, n], [e, r]]
+                  : null == d
+                  ? null
+                  : [[d, n], [e, r]]
               },
               scale: function(n) {
                 return arguments.length
@@ -12182,9 +12289,9 @@
                       ;(n.x = (n.x - t.x) * e), (n.y = (t.y - n.y) * r)
                     }
                   : function(n) {
-                      ;(n.x = (n.x - f) / (s - f) * e),
+                      ;(n.x = ((n.x - f) / (s - f)) * e),
                         (n.y = (1 - (t.y ? n.y / t.y : 1)) * r)
-                    },
+                    }
               )
             }
             var n = Ma,
@@ -12198,12 +12305,16 @@
               (t.size = function(n) {
                 return arguments.length
                   ? ((i = !1), (e = +n[0]), (r = +n[1]), t)
-                  : i ? null : [e, r]
+                  : i
+                  ? null
+                  : [e, r]
               }),
               (t.nodeSize = function(n) {
                 return arguments.length
                   ? ((i = !0), (e = +n[0]), (r = +n[1]), t)
-                  : i ? [e, r] : null
+                  : i
+                  ? [e, r]
+                  : null
               }),
               t
             )
@@ -12403,9 +12514,9 @@
                   i_(
                     e,
                     e.x0,
-                    t * (e.depth + 1) / n,
+                    (t * (e.depth + 1)) / n,
                     e.x1,
-                    t * (e.depth + 2) / n,
+                    (t * (e.depth + 2)) / n
                   )
                 var r = e.x0,
                   a = e.y0,
@@ -12575,12 +12686,16 @@
               (t.size = function(n) {
                 return arguments.length
                   ? ((c = !1), (o = +n[0]), (u = +n[1]), t)
-                  : c ? null : [o, u]
+                  : c
+                  ? null
+                  : [o, u]
               }),
               (t.nodeSize = function(n) {
                 return arguments.length
                   ? ((c = !0), (o = +n[0]), (u = +n[1]), t)
-                  : c ? [o, u] : null
+                  : c
+                  ? [o, u]
+                  : null
               }),
               t
             )
@@ -12756,8 +12871,8 @@
                   )
                     u.value += c[f].value
                   u.dice
-                    ? i_(u, e, r, i, (r += (a - r) * u.value / d))
-                    : l_(u, e, r, (e += (i - e) * u.value / d), a),
+                    ? i_(u, e, r, i, (r += ((a - r) * u.value) / d))
+                    : l_(u, e, r, (e += ((i - e) * u.value) / d), a),
                     (d -= u.value)
                 }
               else (t._squarify = o = go(n, t, e, r, i, a)), (o.ratio = n)
@@ -12826,7 +12941,7 @@
                 (e = a[0]),
                 (r = a[1]),
                 r > u != f > u &&
-                  o < (c - e) * (u - r) / (f - r) + e &&
+                  o < ((c - e) * (u - r)) / (f - r) + e &&
                   (s = !s),
                 (c = e),
                 (f = r)
@@ -12917,7 +13032,7 @@
                     do {
                       ;(r = 2 * n() - 1), (a = 2 * n() - 1), (i = r * r + a * a)
                     } while (!i || i > 1)
-                  return t + e * a * Math.sqrt(-2 * Math.log(i) / i)
+                  return t + e * a * Math.sqrt((-2 * Math.log(i)) / i)
                 }
               )
             }
@@ -13186,7 +13301,7 @@
             },
             function(t, n) {
               return n - t
-            },
+            }
           )
         K_.every = function(t) {
           return (
@@ -13202,7 +13317,7 @@
                     },
                     function(n, e) {
                       return (e - n) / t
-                    },
+                    }
                   )
                 : K_
               : null
@@ -13223,7 +13338,7 @@
             },
             function(t) {
               return t.getUTCSeconds()
-            },
+            }
           ),
           im = rm.range,
           am = eu(
@@ -13238,7 +13353,7 @@
             },
             function(t) {
               return t.getMinutes()
-            },
+            }
           ),
           om = am.range,
           um = eu(
@@ -13255,7 +13370,7 @@
             },
             function(t) {
               return t.getHours()
-            },
+            }
           ),
           cm = um.range,
           fm = eu(
@@ -13273,7 +13388,7 @@
             },
             function(t) {
               return t.getDate() - 1
-            },
+            }
           ),
           sm = fm.range,
           lm = ru(0),
@@ -13306,7 +13421,7 @@
             },
             function(t) {
               return t.getMonth()
-            },
+            }
           ),
           Sm = Nm.range,
           Am = eu(
@@ -13321,7 +13436,7 @@
             },
             function(t) {
               return t.getFullYear()
-            },
+            }
           )
         Am.every = function(t) {
           return isFinite((t = Math.floor(t))) && t > 0
@@ -13333,7 +13448,7 @@
                 },
                 function(n, e) {
                   n.setFullYear(n.getFullYear() + e * t)
-                },
+                }
               )
             : null
         }
@@ -13350,7 +13465,7 @@
             },
             function(t) {
               return t.getUTCMinutes()
-            },
+            }
           ),
           Cm = Em.range,
           Pm = eu(
@@ -13365,7 +13480,7 @@
             },
             function(t) {
               return t.getUTCHours()
-            },
+            }
           ),
           Rm = Pm.range,
           zm = eu(
@@ -13380,7 +13495,7 @@
             },
             function(t) {
               return t.getUTCDate() - 1
-            },
+            }
           ),
           Lm = zm.range,
           qm = iu(0),
@@ -13413,7 +13528,7 @@
             },
             function(t) {
               return t.getUTCMonth()
-            },
+            }
           ),
           Zm = Wm.range,
           Qm = eu(
@@ -13428,7 +13543,7 @@
             },
             function(t) {
               return t.getUTCFullYear()
-            },
+            }
           )
         Qm.every = function(t) {
           return isFinite((t = Math.floor(t))) && t > 0
@@ -13440,7 +13555,7 @@
                 },
                 function(n, e) {
                   n.setUTCFullYear(n.getUTCFullYear() + e * t)
-                },
+                }
               )
             : null
         }
@@ -13525,16 +13640,16 @@
             })
           },
           gx = vx(
-            '1f77b4ff7f0e2ca02cd627289467bd8c564be377c27f7f7fbcbd2217becf',
+            '1f77b4ff7f0e2ca02cd627289467bd8c564be377c27f7f7fbcbd2217becf'
           ),
           bx = vx(
-            '393b795254a36b6ecf9c9ede6379398ca252b5cf6bcedb9c8c6d31bd9e39e7ba52e7cb94843c39ad494ad6616be7969c7b4173a55194ce6dbdde9ed6',
+            '393b795254a36b6ecf9c9ede6379398ca252b5cf6bcedb9c8c6d31bd9e39e7ba52e7cb94843c39ad494ad6616be7969c7b4173a55194ce6dbdde9ed6'
           ),
           yx = vx(
-            '3182bd6baed69ecae1c6dbefe6550dfd8d3cfdae6bfdd0a231a35474c476a1d99bc7e9c0756bb19e9ac8bcbddcdadaeb636363969696bdbdbdd9d9d9',
+            '3182bd6baed69ecae1c6dbefe6550dfd8d3cfdae6bfdd0a231a35474c476a1d99bc7e9c0756bb19e9ac8bcbddcdadaeb636363969696bdbdbdd9d9d9'
           ),
           _x = vx(
-            '1f77b4aec7e8ff7f0effbb782ca02c98df8ad62728ff98969467bdc5b0d58c564bc49c94e377c2f7b6d27f7f7fc7c7c7bcbd22dbdb8d17becf9edae5',
+            '1f77b4aec7e8ff7f0effbb782ca02c98df8ad62728ff98969467bdc5b0d58c564bc49c94e377c2f7b6d27f7f7fc7c7c7bcbd22dbdb8d17becf9edae5'
           ),
           mx = ed(Zt(300, 0.5, 0), Zt(-240, 0.5, 1)),
           xx = ed(Zt(-100, 0.75, 0.35), Zt(80, 1.5, 0.8)),
@@ -13552,23 +13667,23 @@
           },
           Nx = cc(
             vx(
-              '44015444025645045745055946075a46085c460a5d460b5e470d60470e6147106347116447136548146748166848176948186a481a6c481b6d481c6e481d6f481f70482071482173482374482475482576482677482878482979472a7a472c7a472d7b472e7c472f7d46307e46327e46337f463480453581453781453882443983443a83443b84433d84433e85423f854240864241864142874144874045884046883f47883f48893e49893e4a893e4c8a3d4d8a3d4e8a3c4f8a3c508b3b518b3b528b3a538b3a548c39558c39568c38588c38598c375a8c375b8d365c8d365d8d355e8d355f8d34608d34618d33628d33638d32648e32658e31668e31678e31688e30698e306a8e2f6b8e2f6c8e2e6d8e2e6e8e2e6f8e2d708e2d718e2c718e2c728e2c738e2b748e2b758e2a768e2a778e2a788e29798e297a8e297b8e287c8e287d8e277e8e277f8e27808e26818e26828e26828e25838e25848e25858e24868e24878e23888e23898e238a8d228b8d228c8d228d8d218e8d218f8d21908d21918c20928c20928c20938c1f948c1f958b1f968b1f978b1f988b1f998a1f9a8a1e9b8a1e9c891e9d891f9e891f9f881fa0881fa1881fa1871fa28720a38620a48621a58521a68522a78522a88423a98324aa8325ab8225ac8226ad8127ad8128ae8029af7f2ab07f2cb17e2db27d2eb37c2fb47c31b57b32b67a34b67935b77937b87838b9773aba763bbb753dbc743fbc7340bd7242be7144bf7046c06f48c16e4ac16d4cc26c4ec36b50c46a52c56954c56856c66758c7655ac8645cc8635ec96260ca6063cb5f65cb5e67cc5c69cd5b6ccd5a6ece5870cf5773d05675d05477d1537ad1517cd2507fd34e81d34d84d44b86d54989d5488bd6468ed64590d74393d74195d84098d83e9bd93c9dd93ba0da39a2da37a5db36a8db34aadc32addc30b0dd2fb2dd2db5de2bb8de29bade28bddf26c0df25c2df23c5e021c8e020cae11fcde11dd0e11cd2e21bd5e21ad8e219dae319dde318dfe318e2e418e5e419e7e419eae51aece51befe51cf1e51df4e61ef6e620f8e621fbe723fde725',
-            ),
+              '44015444025645045745055946075a46085c460a5d460b5e470d60470e6147106347116447136548146748166848176948186a481a6c481b6d481c6e481d6f481f70482071482173482374482475482576482677482878482979472a7a472c7a472d7b472e7c472f7d46307e46327e46337f463480453581453781453882443983443a83443b84433d84433e85423f854240864241864142874144874045884046883f47883f48893e49893e4a893e4c8a3d4d8a3d4e8a3c4f8a3c508b3b518b3b528b3a538b3a548c39558c39568c38588c38598c375a8c375b8d365c8d365d8d355e8d355f8d34608d34618d33628d33638d32648e32658e31668e31678e31688e30698e306a8e2f6b8e2f6c8e2e6d8e2e6e8e2e6f8e2d708e2d718e2c718e2c728e2c738e2b748e2b758e2a768e2a778e2a788e29798e297a8e297b8e287c8e287d8e277e8e277f8e27808e26818e26828e26828e25838e25848e25858e24868e24878e23888e23898e238a8d228b8d228c8d228d8d218e8d218f8d21908d21918c20928c20928c20938c1f948c1f958b1f968b1f978b1f988b1f998a1f9a8a1e9b8a1e9c891e9d891f9e891f9f881fa0881fa1881fa1871fa28720a38620a48621a58521a68522a78522a88423a98324aa8325ab8225ac8226ad8127ad8128ae8029af7f2ab07f2cb17e2db27d2eb37c2fb47c31b57b32b67a34b67935b77937b87838b9773aba763bbb753dbc743fbc7340bd7242be7144bf7046c06f48c16e4ac16d4cc26c4ec36b50c46a52c56954c56856c66758c7655ac8645cc8635ec96260ca6063cb5f65cb5e67cc5c69cd5b6ccd5a6ece5870cf5773d05675d05477d1537ad1517cd2507fd34e81d34d84d44b86d54989d5488bd6468ed64590d74393d74195d84098d83e9bd93c9dd93ba0da39a2da37a5db36a8db34aadc32addc30b0dd2fb2dd2db5de2bb8de29bade28bddf26c0df25c2df23c5e021c8e020cae11fcde11dd0e11cd2e21bd5e21ad8e219dae319dde318dfe318e2e418e5e419e7e419eae51aece51befe51cf1e51df4e61ef6e620f8e621fbe723fde725'
+            )
           ),
           Sx = cc(
             vx(
-              '00000401000501010601010802010902020b02020d03030f03031204041405041606051806051a07061c08071e0907200a08220b09240c09260d0a290e0b2b100b2d110c2f120d31130d34140e36150e38160f3b180f3d19103f1a10421c10441d11471e114920114b21114e22115024125325125527125829115a2a115c2c115f2d11612f116331116533106734106936106b38106c390f6e3b0f703d0f713f0f72400f74420f75440f764510774710784910784a10794c117a4e117b4f127b51127c52137c54137d56147d57157e59157e5a167e5c167f5d177f5f187f601880621980641a80651a80671b80681c816a1c816b1d816d1d816e1e81701f81721f817320817521817621817822817922827b23827c23827e24828025828125818326818426818627818827818928818b29818c29818e2a81902a81912b81932b80942c80962c80982d80992d809b2e7f9c2e7f9e2f7fa02f7fa1307ea3307ea5317ea6317da8327daa337dab337cad347cae347bb0357bb2357bb3367ab5367ab73779b83779ba3878bc3978bd3977bf3a77c03a76c23b75c43c75c53c74c73d73c83e73ca3e72cc3f71cd4071cf4070d0416fd2426fd3436ed5446dd6456cd8456cd9466bdb476adc4869de4968df4a68e04c67e24d66e34e65e44f64e55064e75263e85362e95462ea5661eb5760ec5860ed5a5fee5b5eef5d5ef05f5ef1605df2625df2645cf3655cf4675cf4695cf56b5cf66c5cf66e5cf7705cf7725cf8745cf8765cf9785df9795df97b5dfa7d5efa7f5efa815ffb835ffb8560fb8761fc8961fc8a62fc8c63fc8e64fc9065fd9266fd9467fd9668fd9869fd9a6afd9b6bfe9d6cfe9f6dfea16efea36ffea571fea772fea973feaa74feac76feae77feb078feb27afeb47bfeb67cfeb77efeb97ffebb81febd82febf84fec185fec287fec488fec68afec88cfeca8dfecc8ffecd90fecf92fed194fed395fed597fed799fed89afdda9cfddc9efddea0fde0a1fde2a3fde3a5fde5a7fde7a9fde9aafdebacfcecaefceeb0fcf0b2fcf2b4fcf4b6fcf6b8fcf7b9fcf9bbfcfbbdfcfdbf',
-            ),
+              '00000401000501010601010802010902020b02020d03030f03031204041405041606051806051a07061c08071e0907200a08220b09240c09260d0a290e0b2b100b2d110c2f120d31130d34140e36150e38160f3b180f3d19103f1a10421c10441d11471e114920114b21114e22115024125325125527125829115a2a115c2c115f2d11612f116331116533106734106936106b38106c390f6e3b0f703d0f713f0f72400f74420f75440f764510774710784910784a10794c117a4e117b4f127b51127c52137c54137d56147d57157e59157e5a167e5c167f5d177f5f187f601880621980641a80651a80671b80681c816a1c816b1d816d1d816e1e81701f81721f817320817521817621817822817922827b23827c23827e24828025828125818326818426818627818827818928818b29818c29818e2a81902a81912b81932b80942c80962c80982d80992d809b2e7f9c2e7f9e2f7fa02f7fa1307ea3307ea5317ea6317da8327daa337dab337cad347cae347bb0357bb2357bb3367ab5367ab73779b83779ba3878bc3978bd3977bf3a77c03a76c23b75c43c75c53c74c73d73c83e73ca3e72cc3f71cd4071cf4070d0416fd2426fd3436ed5446dd6456cd8456cd9466bdb476adc4869de4968df4a68e04c67e24d66e34e65e44f64e55064e75263e85362e95462ea5661eb5760ec5860ed5a5fee5b5eef5d5ef05f5ef1605df2625df2645cf3655cf4675cf4695cf56b5cf66c5cf66e5cf7705cf7725cf8745cf8765cf9785df9795df97b5dfa7d5efa7f5efa815ffb835ffb8560fb8761fc8961fc8a62fc8c63fc8e64fc9065fd9266fd9467fd9668fd9869fd9a6afd9b6bfe9d6cfe9f6dfea16efea36ffea571fea772fea973feaa74feac76feae77feb078feb27afeb47bfeb67cfeb77efeb97ffebb81febd82febf84fec185fec287fec488fec68afec88cfeca8dfecc8ffecd90fecf92fed194fed395fed597fed799fed89afdda9cfddc9efddea0fde0a1fde2a3fde3a5fde5a7fde7a9fde9aafdebacfcecaefceeb0fcf0b2fcf2b4fcf4b6fcf6b8fcf7b9fcf9bbfcfbbdfcfdbf'
+            )
           ),
           Ax = cc(
             vx(
-              '00000401000501010601010802010a02020c02020e03021004031204031405041706041907051b08051d09061f0a07220b07240c08260d08290e092b10092d110a30120a32140b34150b37160b39180c3c190c3e1b0c411c0c431e0c451f0c48210c4a230c4c240c4f260c51280b53290b552b0b572d0b592f0a5b310a5c320a5e340a5f3609613809623909633b09643d09653e0966400a67420a68440a68450a69470b6a490b6a4a0c6b4c0c6b4d0d6c4f0d6c510e6c520e6d540f6d550f6d57106e59106e5a116e5c126e5d126e5f136e61136e62146e64156e65156e67166e69166e6a176e6c186e6d186e6f196e71196e721a6e741a6e751b6e771c6d781c6d7a1d6d7c1d6d7d1e6d7f1e6c801f6c82206c84206b85216b87216b88226a8a226a8c23698d23698f24699025689225689326679526679727669827669a28659b29649d29649f2a63a02a63a22b62a32c61a52c60a62d60a82e5fa92e5eab2f5ead305dae305cb0315bb1325ab3325ab43359b63458b73557b93556ba3655bc3754bd3853bf3952c03a51c13a50c33b4fc43c4ec63d4dc73e4cc83f4bca404acb4149cc4248ce4347cf4446d04545d24644d34743d44842d54a41d74b3fd84c3ed94d3dda4e3cdb503bdd513ade5238df5337e05536e15635e25734e35933e45a31e55c30e65d2fe75e2ee8602de9612bea632aeb6429eb6628ec6726ed6925ee6a24ef6c23ef6e21f06f20f1711ff1731df2741cf3761bf37819f47918f57b17f57d15f67e14f68013f78212f78410f8850ff8870ef8890cf98b0bf98c0af98e09fa9008fa9207fa9407fb9606fb9706fb9906fb9b06fb9d07fc9f07fca108fca309fca50afca60cfca80dfcaa0ffcac11fcae12fcb014fcb216fcb418fbb61afbb81dfbba1ffbbc21fbbe23fac026fac228fac42afac62df9c72ff9c932f9cb35f8cd37f8cf3af7d13df7d340f6d543f6d746f5d949f5db4cf4dd4ff4df53f4e156f3e35af3e55df2e661f2e865f2ea69f1ec6df1ed71f1ef75f1f179f2f27df2f482f3f586f3f68af4f88ef5f992f6fa96f8fb9af9fc9dfafda1fcffa4',
-            ),
+              '00000401000501010601010802010a02020c02020e03021004031204031405041706041907051b08051d09061f0a07220b07240c08260d08290e092b10092d110a30120a32140b34150b37160b39180c3c190c3e1b0c411c0c431e0c451f0c48210c4a230c4c240c4f260c51280b53290b552b0b572d0b592f0a5b310a5c320a5e340a5f3609613809623909633b09643d09653e0966400a67420a68440a68450a69470b6a490b6a4a0c6b4c0c6b4d0d6c4f0d6c510e6c520e6d540f6d550f6d57106e59106e5a116e5c126e5d126e5f136e61136e62146e64156e65156e67166e69166e6a176e6c186e6d186e6f196e71196e721a6e741a6e751b6e771c6d781c6d7a1d6d7c1d6d7d1e6d7f1e6c801f6c82206c84206b85216b87216b88226a8a226a8c23698d23698f24699025689225689326679526679727669827669a28659b29649d29649f2a63a02a63a22b62a32c61a52c60a62d60a82e5fa92e5eab2f5ead305dae305cb0315bb1325ab3325ab43359b63458b73557b93556ba3655bc3754bd3853bf3952c03a51c13a50c33b4fc43c4ec63d4dc73e4cc83f4bca404acb4149cc4248ce4347cf4446d04545d24644d34743d44842d54a41d74b3fd84c3ed94d3dda4e3cdb503bdd513ade5238df5337e05536e15635e25734e35933e45a31e55c30e65d2fe75e2ee8602de9612bea632aeb6429eb6628ec6726ed6925ee6a24ef6c23ef6e21f06f20f1711ff1731df2741cf3761bf37819f47918f57b17f57d15f67e14f68013f78212f78410f8850ff8870ef8890cf98b0bf98c0af98e09fa9008fa9207fa9407fb9606fb9706fb9906fb9b06fb9d07fc9f07fca108fca309fca50afca60cfca80dfcaa0ffcac11fcae12fcb014fcb216fcb418fbb61afbb81dfbba1ffbbc21fbbe23fac026fac228fac42afac62df9c72ff9c932f9cb35f8cd37f8cf3af7d13df7d340f6d543f6d746f5d949f5db4cf4dd4ff4df53f4e156f3e35af3e55df2e661f2e865f2ea69f1ec6df1ed71f1ef75f1f179f2f27df2f482f3f586f3f68af4f88ef5f992f6fa96f8fb9af9fc9dfafda1fcffa4'
+            )
           ),
           Tx = cc(
             vx(
-              '0d088710078813078916078a19068c1b068d1d068e20068f2206902406912605912805922a05932c05942e05952f059631059733059735049837049938049a3a049a3c049b3e049c3f049c41049d43039e44039e46039f48039f4903a04b03a14c02a14e02a25002a25102a35302a35502a45601a45801a45901a55b01a55c01a65e01a66001a66100a76300a76400a76600a76700a86900a86a00a86c00a86e00a86f00a87100a87201a87401a87501a87701a87801a87a02a87b02a87d03a87e03a88004a88104a78305a78405a78606a68707a68808a68a09a58b0aa58d0ba58e0ca48f0da4910ea3920fa39410a29511a19613a19814a099159f9a169f9c179e9d189d9e199da01a9ca11b9ba21d9aa31e9aa51f99a62098a72197a82296aa2395ab2494ac2694ad2793ae2892b02991b12a90b22b8fb32c8eb42e8db52f8cb6308bb7318ab83289ba3388bb3488bc3587bd3786be3885bf3984c03a83c13b82c23c81c33d80c43e7fc5407ec6417dc7427cc8437bc9447aca457acb4679cc4778cc4977cd4a76ce4b75cf4c74d04d73d14e72d24f71d35171d45270d5536fd5546ed6556dd7566cd8576bd9586ada5a6ada5b69db5c68dc5d67dd5e66de5f65de6164df6263e06363e16462e26561e26660e3685fe4695ee56a5de56b5de66c5ce76e5be76f5ae87059e97158e97257ea7457eb7556eb7655ec7754ed7953ed7a52ee7b51ef7c51ef7e50f07f4ff0804ef1814df1834cf2844bf3854bf3874af48849f48948f58b47f58c46f68d45f68f44f79044f79143f79342f89441f89540f9973ff9983ef99a3efa9b3dfa9c3cfa9e3bfb9f3afba139fba238fca338fca537fca636fca835fca934fdab33fdac33fdae32fdaf31fdb130fdb22ffdb42ffdb52efeb72dfeb82cfeba2cfebb2bfebd2afebe2afec029fdc229fdc328fdc527fdc627fdc827fdca26fdcb26fccd25fcce25fcd025fcd225fbd324fbd524fbd724fad824fada24f9dc24f9dd25f8df25f8e125f7e225f7e425f6e626f6e826f5e926f5eb27f4ed27f3ee27f3f027f2f227f1f426f1f525f0f724f0f921',
-            ),
+              '0d088710078813078916078a19068c1b068d1d068e20068f2206902406912605912805922a05932c05942e05952f059631059733059735049837049938049a3a049a3c049b3e049c3f049c41049d43039e44039e46039f48039f4903a04b03a14c02a14e02a25002a25102a35302a35502a45601a45801a45901a55b01a55c01a65e01a66001a66100a76300a76400a76600a76700a86900a86a00a86c00a86e00a86f00a87100a87201a87401a87501a87701a87801a87a02a87b02a87d03a87e03a88004a88104a78305a78405a78606a68707a68808a68a09a58b0aa58d0ba58e0ca48f0da4910ea3920fa39410a29511a19613a19814a099159f9a169f9c179e9d189d9e199da01a9ca11b9ba21d9aa31e9aa51f99a62098a72197a82296aa2395ab2494ac2694ad2793ae2892b02991b12a90b22b8fb32c8eb42e8db52f8cb6308bb7318ab83289ba3388bb3488bc3587bd3786be3885bf3984c03a83c13b82c23c81c33d80c43e7fc5407ec6417dc7427cc8437bc9447aca457acb4679cc4778cc4977cd4a76ce4b75cf4c74d04d73d14e72d24f71d35171d45270d5536fd5546ed6556dd7566cd8576bd9586ada5a6ada5b69db5c68dc5d67dd5e66de5f65de6164df6263e06363e16462e26561e26660e3685fe4695ee56a5de56b5de66c5ce76e5be76f5ae87059e97158e97257ea7457eb7556eb7655ec7754ed7953ed7a52ee7b51ef7c51ef7e50f07f4ff0804ef1814df1834cf2844bf3854bf3874af48849f48948f58b47f58c46f68d45f68f44f79044f79143f79342f89441f89540f9973ff9983ef99a3efa9b3dfa9c3cfa9e3bfb9f3afba139fba238fca338fca537fca636fca835fca934fdab33fdac33fdae32fdaf31fdb130fdb22ffdb42ffdb52efeb72dfeb82cfeba2cfebb2bfebd2afebe2afec029fdc229fdc328fdc527fdc627fdc827fdca26fdcb26fccd25fcce25fcd025fcd225fbd324fbd524fbd724fad824fada24f9dc24f9dd25f8df25f8e125f7e225f7e425f6e626f6e826f5e926f5eb27f4ed27f3ee27f3f027f2f227f1f426f1f525f0f724f0f921'
+            )
           ),
           Ex = function(t) {
             return function() {
@@ -13623,8 +13738,8 @@
                     A = S,
                     T = S
                   if (N > Ux) {
-                    var E = lc(N / s * qx(k)),
-                      C = lc(N / l * qx(k))
+                    var E = lc((N / s) * qx(k)),
+                      C = lc((N / l) * qx(k))
                     ;(w -= 2 * E) > Ux
                       ? ((E *= v ? 1 : -1), (m += E), (x -= E))
                       : ((w = 0), (m = x = (h + d) / 2)),
@@ -13652,8 +13767,8 @@
                           qx(
                             sc(
                               (I * B + F * j) /
-                                (Ox(I * I + F * F) * Ox(B * B + j * j)),
-                            ) / 2,
+                                (Ox(I * I + F * F) * Ox(B * B + j * j))
+                            ) / 2
                           ),
                         H = Ox(Y[0] * Y[0] + Y[1] * Y[1])
                       ;(A = Lx(S, (s - H) / (X - 1))),
@@ -13672,7 +13787,7 @@
                               T,
                               Px(g.y01, g.x01),
                               Px(b.y01, b.x01),
-                              !v,
+                              !v
                             )
                           : (c.arc(
                               g.cx,
@@ -13680,7 +13795,7 @@
                               T,
                               Px(g.y01, g.x01),
                               Px(g.y11, g.x11),
-                              !v,
+                              !v
                             ),
                             c.arc(
                               0,
@@ -13688,7 +13803,7 @@
                               l,
                               Px(g.cy + g.y11, g.cx + g.x11),
                               Px(b.cy + b.y11, b.cx + b.x11),
-                              !v,
+                              !v
                             ),
                             c.arc(
                               b.cx,
@@ -13696,7 +13811,7 @@
                               T,
                               Px(b.y11, b.x11),
                               Px(b.y01, b.x01),
-                              !v,
+                              !v
                             )))
                       : (c.moveTo(P, R), c.arc(0, 0, l, y, _, !v))
                     : c.moveTo(P, R),
@@ -13712,7 +13827,7 @@
                                 A,
                                 Px(g.y01, g.x01),
                                 Px(b.y01, b.x01),
-                                !v,
+                                !v
                               )
                             : (c.arc(
                                 g.cx,
@@ -13720,7 +13835,7 @@
                                 A,
                                 Px(g.y01, g.x01),
                                 Px(g.y11, g.x11),
-                                !v,
+                                !v
                               ),
                               c.arc(
                                 0,
@@ -13728,7 +13843,7 @@
                                 s,
                                 Px(g.cy + g.y11, g.cx + g.x11),
                                 Px(b.cy + b.y11, b.cx + b.x11),
-                                v,
+                                v
                               ),
                               c.arc(
                                 b.cx,
@@ -13736,7 +13851,7 @@
                                 A,
                                 Px(b.y11, b.x11),
                                 Px(b.y01, b.x01),
-                                !v,
+                                !v
                               )))
                         : c.arc(0, 0, s, x, m, v)
                       : c.lineTo(z, L)
@@ -14184,7 +14299,7 @@
                 t.closePath()
             },
           },
-          iw = Math.sin(Dx / 10) / Math.sin(7 * Dx / 10),
+          iw = Math.sin(Dx / 10) / Math.sin((7 * Dx) / 10),
           aw = Math.sin(Ix / 10) * iw,
           ow = -Math.cos(Ix / 10) * iw,
           uw = {
@@ -14194,7 +14309,7 @@
                 i = ow * e
               t.moveTo(0, -e), t.lineTo(r, i)
               for (var a = 1; a < 5; ++a) {
-                var o = Ix * a / 5,
+                var o = (Ix * a) / 5,
                   u = Math.cos(o),
                   c = Math.sin(o)
                 t.lineTo(c * e, -u * e), t.lineTo(u * r - c * i, c * r + u * i)
@@ -14313,7 +14428,7 @@
                 ;(this._point = 3),
                   this._context.lineTo(
                     (5 * this._x0 + this._x1) / 6,
-                    (5 * this._y0 + this._y1) / 6,
+                    (5 * this._y0 + this._y1) / 6
                   )
               default:
                 Lc(this, t, n)
@@ -14343,11 +14458,11 @@
               case 2:
                 this._context.moveTo(
                   (this._x2 + 2 * this._x3) / 3,
-                  (this._y2 + 2 * this._y3) / 3,
+                  (this._y2 + 2 * this._y3) / 3
                 ),
                   this._context.lineTo(
                     (this._x3 + 2 * this._x2) / 3,
-                    (this._y3 + 2 * this._y2) / 3,
+                    (this._y3 + 2 * this._y2) / 3
                   ),
                   this._context.closePath()
                 break
@@ -14371,7 +14486,7 @@
                   (this._y4 = n),
                   this._context.moveTo(
                     (this._x0 + 4 * this._x1 + t) / 6,
-                    (this._y0 + 4 * this._y1 + n) / 6,
+                    (this._y0 + 4 * this._y1 + n) / 6
                   )
                 break
               default:
@@ -14449,7 +14564,7 @@
                 (r = c / e),
                   this._basis.point(
                     this._beta * t[c] + (1 - this._beta) * (i + r * o),
-                    this._beta * n[c] + (1 - this._beta) * (a + r * u),
+                    this._beta * n[c] + (1 - this._beta) * (a + r * u)
                   )
             ;(this._x = this._y = null), this._basis.lineEnd()
           },
@@ -14665,7 +14780,7 @@
               var e = this._x2 - t,
                 r = this._y2 - n
               this._l23_a = Math.sqrt(
-                (this._l23_2a = Math.pow(e * e + r * r, this._alpha)),
+                (this._l23_2a = Math.pow(e * e + r * r, this._alpha))
               )
             }
             switch (this._point) {
@@ -14734,7 +14849,7 @@
               var e = this._x2 - t,
                 r = this._y2 - n
               this._l23_a = Math.sqrt(
-                (this._l23_2a = Math.pow(e * e + r * r, this._alpha)),
+                (this._l23_2a = Math.pow(e * e + r * r, this._alpha))
               )
             }
             switch (this._point) {
@@ -14795,7 +14910,7 @@
               var e = this._x2 - t,
                 r = this._y2 - n
               this._l23_a = Math.sqrt(
-                (this._l23_2a = Math.pow(e * e + r * r, this._alpha)),
+                (this._l23_2a = Math.pow(e * e + r * r, this._alpha))
               )
             }
             switch (this._point) {
@@ -14957,7 +15072,7 @@
                       r[1][a],
                       i[1][a],
                       t[o],
-                      n[o],
+                      n[o]
                     )
               ;(this._line || (0 !== this._line && 1 === e)) &&
                 this._context.closePath(),
@@ -15065,7 +15180,9 @@
                   ? ((e =
                       null == n
                         ? zw
-                        : 'function' == typeof n ? n : Ex(Jx.call(n))),
+                        : 'function' == typeof n
+                        ? n
+                        : Ex(Jx.call(n))),
                     t)
                   : e
               }),
@@ -15090,7 +15207,9 @@
                 for (a = o = 0, e = 0; e < u; ++e)
                   (i = (r = t[n[e]][c])[1] - r[0]) >= 0
                     ? ((r[0] = a), (r[1] = a += i))
-                    : i < 0 ? ((r[1] = o), (r[0] = o += i)) : (r[0] = a)
+                    : i < 0
+                    ? ((r[1] = o), (r[0] = o += i))
+                    : (r[0] = a)
           },
           Uw = function(t, n) {
             if ((e = t.length) > 0) {
@@ -15358,7 +15477,7 @@
                   ]
                   return (a.index = i), (a.data = r), a
                 }),
-                r,
+                r
               )
             }
             var n = lf,
@@ -15439,7 +15558,7 @@
               t
                 .range()
                 .map(this.invertX, this)
-                .map(t.invert, t),
+                .map(t.invert, t)
             )
           },
           rescaleY: function(t) {
@@ -15447,7 +15566,7 @@
               t
                 .range()
                 .map(this.invertY, this)
-                .map(t.invert, t),
+                .map(t.invert, t)
             )
           },
           toString: function() {
@@ -15463,8 +15582,7 @@
           },
           rM = function() {
             function n(t) {
-              t
-                .property('__zoom', Wf)
+              t.property('__zoom', Wf)
                 .on('wheel.zoom', f)
                 .on('mousedown.zoom', s)
                 .on('dblclick.zoom', l)
@@ -15493,17 +15611,16 @@
                 a = t.invertY(n[1][1]) - S
               return t.translate(
                 r > e ? (e + r) / 2 : Math.min(0, e) || Math.max(0, r),
-                a > i ? (i + a) / 2 : Math.min(0, i) || Math.max(0, a),
+                a > i ? (i + a) / 2 : Math.min(0, i) || Math.max(0, a)
               )
             }
             function a(t) {
               return [(+t[0][0] + +t[1][0]) / 2, (+t[0][1] + +t[1][1]) / 2]
             }
             function o(t, n, e) {
-              t
-                .on('start.zoom', function() {
-                  u(this, arguments).start()
-                })
+              t.on('start.zoom', function() {
+                u(this, arguments).start()
+              })
                 .on('interrupt.zoom end.zoom', function() {
                   u(this, arguments).end()
                 })
@@ -15518,7 +15635,7 @@
                     l = 'function' == typeof n ? n.apply(t, r) : n,
                     h = T(
                       s.invert(c).concat(f / s.k),
-                      l.invert(c).concat(f / l.k),
+                      l.invert(c).concat(f / l.k)
                     )
                   return function(t) {
                     if (1 === t) t = l
@@ -15552,7 +15669,7 @@
                   a = this.__zoom,
                   o = Math.max(
                     x,
-                    Math.min(w, a.k * Math.pow(2, m.apply(this, arguments))),
+                    Math.min(w, a.k * Math.pow(2, m.apply(this, arguments)))
                   ),
                   c = rl(this)
                 if (n.wheel)
@@ -15567,7 +15684,7 @@
                   (n.wheel = setTimeout(t, z)),
                   n.zoom(
                     'mouse',
-                    i(r(e(a, o), n.mouse[0], n.mouse[1]), n.extent),
+                    i(r(e(a, o), n.mouse[0], n.mouse[1]), n.extent)
                   )
               }
             }
@@ -15582,8 +15699,8 @@
                   'mouse',
                   i(
                     r(a.that.__zoom, (a.mouse[0] = rl(a.that)), a.mouse[1]),
-                    a.extent,
-                  ),
+                    a.extent
+                  )
                 )
               }
               function e() {
@@ -15745,7 +15862,7 @@
                             null,
                             'function' == typeof n
                               ? n.apply(this, arguments)
-                              : n,
+                              : n
                           )
                           .end()
                       })
@@ -15768,12 +15885,12 @@
                     r(
                       e(
                         n,
-                        'function' == typeof o ? o.apply(this, arguments) : o,
+                        'function' == typeof o ? o.apply(this, arguments) : o
                       ),
                       u,
-                      c,
+                      c
                     ),
-                    t,
+                    t
                   )
                 })
               }),
@@ -15782,9 +15899,9 @@
                   return i(
                     this.__zoom.translate(
                       'function' == typeof e ? e.apply(this, arguments) : e,
-                      'function' == typeof r ? r.apply(this, arguments) : r,
+                      'function' == typeof r ? r.apply(this, arguments) : r
                     ),
-                    _.apply(this, arguments),
+                    _.apply(this, arguments)
                   )
                 })
               }),
@@ -15799,9 +15916,9 @@
                       .scale(n.k)
                       .translate(
                         'function' == typeof e ? -e.apply(this, arguments) : -e,
-                        'function' == typeof r ? -r.apply(this, arguments) : -r,
+                        'function' == typeof r ? -r.apply(this, arguments) : -r
                       ),
-                    t,
+                    t
                   )
                 })
               }),
@@ -16459,13 +16576,17 @@
           (s = f.index) > l &&
             ((s = n.slice(l, s)), d[h] ? (d[h] += s) : (d[++h] = s)),
             (c = c[0]) === (f = f[0])
-              ? d[h] ? (d[h] += f) : (d[++h] = f)
+              ? d[h]
+                ? (d[h] += f)
+                : (d[++h] = f)
               : ((d[++h] = null), p.push({ i: h, x: e.i(a.a)(c, f) })),
             (l = u.lastIndex)
         return (
           l < n.length && ((s = n.slice(l)), d[h] ? (d[h] += s) : (d[++h] = s)),
           d.length < 2
-            ? p[0] ? i(p[0].x) : r(n)
+            ? p[0]
+              ? i(p[0].x)
+              : r(n)
             : ((n = p.length),
               function(t) {
                 for (var e, r = 0; r < n; ++r) d[(e = p[r]).i] = e.x(t)
@@ -16556,7 +16677,7 @@
                     (this.chartHeight + 2 * this.offset) +
                     ', ' +
                     (this.chartHeight + this.offset) +
-                    ')',
+                    ')'
                 ))
           }
           return (
@@ -16591,25 +16712,25 @@
                     { x: n * Math.sin(a), y: -n * Math.cos(a) },
                   ]
                 : this.centralLabel
-                  ? [
-                      { x: n * Math.sin(a), y: -n * Math.cos(a) },
-                      {
-                        x: 1.5 * r * Math.sin(a) - r / 3 * Math.cos(a),
-                        y: -1.5 * r * Math.cos(a) - r / 3 * Math.sin(a),
-                      },
-                      {
-                        x: 1.5 * r * Math.sin(a) + r / 3 * Math.cos(a),
-                        y: -1.5 * r * Math.cos(a) + r / 3 * Math.sin(a),
-                      },
-                      { x: n * Math.sin(a), y: -n * Math.cos(a) },
-                    ]
-                  : [
-                      { x: n * Math.sin(a), y: -n * Math.cos(a) },
-                      { x: -r * Math.cos(a), y: -r * Math.sin(a) },
-                      { x: -e * Math.sin(a), y: e * Math.cos(a) },
-                      { x: r * Math.cos(a), y: r * Math.sin(a) },
-                      { x: n * Math.sin(a), y: -n * Math.cos(a) },
-                    ]
+                ? [
+                    { x: n * Math.sin(a), y: -n * Math.cos(a) },
+                    {
+                      x: 1.5 * r * Math.sin(a) - (r / 3) * Math.cos(a),
+                      y: -1.5 * r * Math.cos(a) - (r / 3) * Math.sin(a),
+                    },
+                    {
+                      x: 1.5 * r * Math.sin(a) + (r / 3) * Math.cos(a),
+                      y: -1.5 * r * Math.cos(a) + (r / 3) * Math.sin(a),
+                    },
+                    { x: n * Math.sin(a), y: -n * Math.cos(a) },
+                  ]
+                : [
+                    { x: n * Math.sin(a), y: -n * Math.cos(a) },
+                    { x: -r * Math.cos(a), y: -r * Math.sin(a) },
+                    { x: -e * Math.sin(a), y: e * Math.cos(a) },
+                    { x: r * Math.cos(a), y: r * Math.sin(a) },
+                    { x: n * Math.sin(a), y: -n * Math.cos(a) },
+                  ]
             }),
             (t.prototype.getSelection = function() {
               return this.needleSvg
@@ -16629,7 +16750,7 @@
           !t ||
           !(t.slice(-1)[0] >= 100 || t[0] <= 0) ||
           (h.error(
-            'Gauge-chart Error: gauge delimiters have to be LARGER than 0 and LESS than 100',
+            'Gauge-chart Error: gauge delimiters have to be LARGER than 0 and LESS than 100'
           ),
           !1)
         )
@@ -16652,7 +16773,7 @@
           n &&
           t.length > n.length - 1 &&
           h.warn(
-            'Gauge-chart Warning: list of colors is not complete, standard colors added to the chart',
+            'Gauge-chart Warning: list of colors is not complete, standard colors added to the chart'
           )
       }
       function o(t, n) {
@@ -16660,19 +16781,19 @@
           n &&
           t.length < n.length - 1 &&
           h.warn(
-            'Gauge-chart Warning: list of colors exceeds number of slices, therefore it was shortened',
+            'Gauge-chart Warning: list of colors exceeds number of slices, therefore it was shortened'
           )
       }
       function u(t) {
         ;(t < 0 || t > 100) &&
           h.warn(
-            'Gauge-chart Warning: value of needdle is less that 0 or larger than 100',
+            'Gauge-chart Warning: value of needdle is less that 0 or larger than 100'
           )
       }
       function c(t) {
         t.length > 2 &&
           h.warn(
-            'Gauge-chart Warning: number of range label parameters is bigger than 2',
+            'Gauge-chart Warning: number of range label parameters is bigger than 2'
           )
       }
       function f(t, n, e) {
@@ -16987,10 +17108,10 @@
               255 * (n + e * (f * r + s * i)),
               255 * (n + e * (l * r + h * i)),
               255 * (n + e * (d * r)),
-              this.opacity,
+              this.opacity
             )
           },
-        }),
+        })
       )
     },
     function(t, n, e) {
@@ -17011,7 +17132,7 @@
           116 * s - 16,
           500 * (c - s),
           200 * (s - o((0.0193339 * r + 0.119192 * i + 0.9503041 * u) / y)),
-          t.opacity,
+          t.opacity
         )
       }
       function i(t, n, e, i) {
@@ -17045,7 +17166,7 @@
           n < 0 ? n + 360 : n,
           Math.sqrt(t.a * t.a + t.b * t.b),
           t.l,
-          t.opacity,
+          t.opacity
         )
       }
       function l(t, n, e, r) {
@@ -17074,7 +17195,7 @@
               this.l + 18 * (null == t ? 1 : t),
               this.a,
               this.b,
-              this.opacity,
+              this.opacity
             )
           },
           darker: function(t) {
@@ -17082,7 +17203,7 @@
               this.l - 18 * (null == t ? 1 : t),
               this.a,
               this.b,
-              this.opacity,
+              this.opacity
             )
           },
           rgb: function() {
@@ -17097,11 +17218,11 @@
                 c(3.2404542 * n - 1.5371385 * t - 0.4985314 * e),
                 c(-0.969266 * n + 1.8760108 * t + 0.041556 * e),
                 c(0.0556434 * n - 0.2040259 * t + 1.0572252 * e),
-                this.opacity,
+                this.opacity
               )
             )
           },
-        }),
+        })
       ),
         e.i(d.a)(
           h,
@@ -17112,7 +17233,7 @@
                 this.h,
                 this.c,
                 this.l + 18 * (null == t ? 1 : t),
-                this.opacity,
+                this.opacity
               )
             },
             darker: function(t) {
@@ -17120,29 +17241,30 @@
                 this.h,
                 this.c,
                 this.l - 18 * (null == t ? 1 : t),
-                this.opacity,
+                this.opacity
               )
             },
             rgb: function() {
               return r(this).rgb()
             },
-          }),
+          })
         )
     },
     function(t, n, e) {
       'use strict'
-      var r = (e(9),
-      e(13),
-      e(8),
-      e(14),
-      e(16),
-      e(4),
-      e(17),
-      e(34),
-      e(19),
-      e(36),
-      e(38),
-      e(18))
+      var r =
+        (e(9),
+        e(13),
+        e(8),
+        e(14),
+        e(16),
+        e(4),
+        e(17),
+        e(34),
+        e(19),
+        e(36),
+        e(38),
+        e(18))
       e.d(n, 'a', function() {
         return r.a
       })
@@ -17273,7 +17395,7 @@
             var s = c.push('translate(', null, n, null, r)
             f.push(
               { i: s - 4, x: e.i(i.a)(t, o) },
-              { i: s - 2, x: e.i(i.a)(a, u) },
+              { i: s - 2, x: e.i(i.a)(a, u) }
             )
           } else (o || u) && c.push('translate(' + o + n + u + r)
         }
@@ -17299,7 +17421,7 @@
             var f = u.push(o(u) + 'scale(', null, ',', null, ')')
             c.push(
               { i: f - 4, x: e.i(i.a)(t, r) },
-              { i: f - 2, x: e.i(i.a)(n, a) },
+              { i: f - 2, x: e.i(i.a)(n, a) }
             )
           } else
             (1 === r && 1 === a) || u.push(o(u) + 'scale(' + r + ',' + a + ')')
@@ -17379,7 +17501,7 @@
       'use strict'
       var r = e(0)
       n.a = e.i(r.a)(
-        'a6cee31f78b4b2df8a33a02cfb9a99e31a1cfdbf6fff7f00cab2d66a3d9affff99b15928',
+        'a6cee31f78b4b2df8a33a02cfb9a99e31a1cfdbf6fff7f00cab2d66a3d9affff99b15928'
       )
     },
     function(t, n, e) {
@@ -17406,7 +17528,7 @@
       'use strict'
       var r = e(0)
       n.a = e.i(r.a)(
-        '8dd3c7ffffb3bebadafb807280b1d3fdb462b3de69fccde5d9d9d9bc80bdccebc5ffed6f',
+        '8dd3c7ffffb3bebadafb807280b1d3fdb462b3de69fccde5d9d9d9bc80bdccebc5ffed6f'
       )
     },
     function(t, n, e) {
@@ -17426,7 +17548,7 @@
             '8c510abf812ddfc27df6e8c3c7eae580cdc135978f01665e',
             '8c510abf812ddfc27df6e8c3f5f5f5c7eae580cdc135978f01665e',
             '5430058c510abf812ddfc27df6e8c3c7eae580cdc135978f01665e003c30',
-            '5430058c510abf812ddfc27df6e8c3f5f5f5c7eae580cdc135978f01665e003c30',
+            '5430058c510abf812ddfc27df6e8c3f5f5f5c7eae580cdc135978f01665e003c30'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17448,7 +17570,7 @@
             '762a839970abc2a5cfe7d4e8d9f0d3a6dba05aae611b7837',
             '762a839970abc2a5cfe7d4e8f7f7f7d9f0d3a6dba05aae611b7837',
             '40004b762a839970abc2a5cfe7d4e8d9f0d3a6dba05aae611b783700441b',
-            '40004b762a839970abc2a5cfe7d4e8f7f7f7d9f0d3a6dba05aae611b783700441b',
+            '40004b762a839970abc2a5cfe7d4e8f7f7f7d9f0d3a6dba05aae611b783700441b'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17470,7 +17592,7 @@
             'c51b7dde77aef1b6dafde0efe6f5d0b8e1867fbc414d9221',
             'c51b7dde77aef1b6dafde0eff7f7f7e6f5d0b8e1867fbc414d9221',
             '8e0152c51b7dde77aef1b6dafde0efe6f5d0b8e1867fbc414d9221276419',
-            '8e0152c51b7dde77aef1b6dafde0eff7f7f7e6f5d0b8e1867fbc414d9221276419',
+            '8e0152c51b7dde77aef1b6dafde0eff7f7f7e6f5d0b8e1867fbc414d9221276419'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17492,7 +17614,7 @@
             '5427888073acb2abd2d8daebfee0b6fdb863e08214b35806',
             '5427888073acb2abd2d8daebf7f7f7fee0b6fdb863e08214b35806',
             '2d004b5427888073acb2abd2d8daebfee0b6fdb863e08214b358067f3b08',
-            '2d004b5427888073acb2abd2d8daebf7f7f7fee0b6fdb863e08214b358067f3b08',
+            '2d004b5427888073acb2abd2d8daebf7f7f7fee0b6fdb863e08214b358067f3b08'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17514,7 +17636,7 @@
             'b2182bd6604df4a582fddbc7d1e5f092c5de4393c32166ac',
             'b2182bd6604df4a582fddbc7f7f7f7d1e5f092c5de4393c32166ac',
             '67001fb2182bd6604df4a582fddbc7d1e5f092c5de4393c32166ac053061',
-            '67001fb2182bd6604df4a582fddbc7f7f7f7d1e5f092c5de4393c32166ac053061',
+            '67001fb2182bd6604df4a582fddbc7f7f7f7d1e5f092c5de4393c32166ac053061'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17536,7 +17658,7 @@
             'b2182bd6604df4a582fddbc7e0e0e0bababa8787874d4d4d',
             'b2182bd6604df4a582fddbc7ffffffe0e0e0bababa8787874d4d4d',
             '67001fb2182bd6604df4a582fddbc7e0e0e0bababa8787874d4d4d1a1a1a',
-            '67001fb2182bd6604df4a582fddbc7ffffffe0e0e0bababa8787874d4d4d1a1a1a',
+            '67001fb2182bd6604df4a582fddbc7ffffffe0e0e0bababa8787874d4d4d1a1a1a'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17558,7 +17680,7 @@
             'd73027f46d43fdae61fee090e0f3f8abd9e974add14575b4',
             'd73027f46d43fdae61fee090ffffbfe0f3f8abd9e974add14575b4',
             'a50026d73027f46d43fdae61fee090e0f3f8abd9e974add14575b4313695',
-            'a50026d73027f46d43fdae61fee090ffffbfe0f3f8abd9e974add14575b4313695',
+            'a50026d73027f46d43fdae61fee090ffffbfe0f3f8abd9e974add14575b4313695'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17580,7 +17702,7 @@
             'd73027f46d43fdae61fee08bd9ef8ba6d96a66bd631a9850',
             'd73027f46d43fdae61fee08bffffbfd9ef8ba6d96a66bd631a9850',
             'a50026d73027f46d43fdae61fee08bd9ef8ba6d96a66bd631a9850006837',
-            'a50026d73027f46d43fdae61fee08bffffbfd9ef8ba6d96a66bd631a9850006837',
+            'a50026d73027f46d43fdae61fee08bffffbfd9ef8ba6d96a66bd631a9850006837'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17602,7 +17724,7 @@
             'd53e4ff46d43fdae61fee08be6f598abdda466c2a53288bd',
             'd53e4ff46d43fdae61fee08bffffbfe6f598abdda466c2a53288bd',
             '9e0142d53e4ff46d43fdae61fee08be6f598abdda466c2a53288bd5e4fa2',
-            '9e0142d53e4ff46d43fdae61fee08bffffbfe6f598abdda466c2a53288bd5e4fa2',
+            '9e0142d53e4ff46d43fdae61fee08bffffbfe6f598abdda466c2a53288bd5e4fa2'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17622,7 +17744,7 @@
             'edf8fbccece699d8c966c2a42ca25f006d2c',
             'edf8fbccece699d8c966c2a441ae76238b45005824',
             'f7fcfde5f5f9ccece699d8c966c2a441ae76238b45005824',
-            'f7fcfde5f5f9ccece699d8c966c2a441ae76238b45006d2c00441b',
+            'f7fcfde5f5f9ccece699d8c966c2a441ae76238b45006d2c00441b'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17642,7 +17764,7 @@
             'edf8fbbfd3e69ebcda8c96c68856a7810f7c',
             'edf8fbbfd3e69ebcda8c96c68c6bb188419d6e016b',
             'f7fcfde0ecf4bfd3e69ebcda8c96c68c6bb188419d6e016b',
-            'f7fcfde0ecf4bfd3e69ebcda8c96c68c6bb188419d810f7c4d004b',
+            'f7fcfde0ecf4bfd3e69ebcda8c96c68c6bb188419d810f7c4d004b'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17662,7 +17784,7 @@
             'f0f9e8ccebc5a8ddb57bccc443a2ca0868ac',
             'f0f9e8ccebc5a8ddb57bccc44eb3d32b8cbe08589e',
             'f7fcf0e0f3dbccebc5a8ddb57bccc44eb3d32b8cbe08589e',
-            'f7fcf0e0f3dbccebc5a8ddb57bccc44eb3d32b8cbe0868ac084081',
+            'f7fcf0e0f3dbccebc5a8ddb57bccc44eb3d32b8cbe0868ac084081'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17682,7 +17804,7 @@
             'fef0d9fdd49efdbb84fc8d59e34a33b30000',
             'fef0d9fdd49efdbb84fc8d59ef6548d7301f990000',
             'fff7ecfee8c8fdd49efdbb84fc8d59ef6548d7301f990000',
-            'fff7ecfee8c8fdd49efdbb84fc8d59ef6548d7301fb300007f0000',
+            'fff7ecfee8c8fdd49efdbb84fc8d59ef6548d7301fb300007f0000'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17702,7 +17824,7 @@
             'f1eef6d0d1e6a6bddb74a9cf2b8cbe045a8d',
             'f1eef6d0d1e6a6bddb74a9cf3690c00570b0034e7b',
             'fff7fbece7f2d0d1e6a6bddb74a9cf3690c00570b0034e7b',
-            'fff7fbece7f2d0d1e6a6bddb74a9cf3690c00570b0045a8d023858',
+            'fff7fbece7f2d0d1e6a6bddb74a9cf3690c00570b0045a8d023858'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17722,7 +17844,7 @@
             'f6eff7d0d1e6a6bddb67a9cf1c9099016c59',
             'f6eff7d0d1e6a6bddb67a9cf3690c002818a016450',
             'fff7fbece2f0d0d1e6a6bddb67a9cf3690c002818a016450',
-            'fff7fbece2f0d0d1e6a6bddb67a9cf3690c002818a016c59014636',
+            'fff7fbece2f0d0d1e6a6bddb67a9cf3690c002818a016c59014636'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17742,7 +17864,7 @@
             'f1eef6d4b9dac994c7df65b0dd1c77980043',
             'f1eef6d4b9dac994c7df65b0e7298ace125691003f',
             'f7f4f9e7e1efd4b9dac994c7df65b0e7298ace125691003f',
-            'f7f4f9e7e1efd4b9dac994c7df65b0e7298ace125698004367001f',
+            'f7f4f9e7e1efd4b9dac994c7df65b0e7298ace125698004367001f'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17762,7 +17884,7 @@
             'feebe2fcc5c0fa9fb5f768a1c51b8a7a0177',
             'feebe2fcc5c0fa9fb5f768a1dd3497ae017e7a0177',
             'fff7f3fde0ddfcc5c0fa9fb5f768a1dd3497ae017e7a0177',
-            'fff7f3fde0ddfcc5c0fa9fb5f768a1dd3497ae017e7a017749006a',
+            'fff7f3fde0ddfcc5c0fa9fb5f768a1dd3497ae017e7a017749006a'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17782,7 +17904,7 @@
             'ffffccd9f0a3addd8e78c67931a354006837',
             'ffffccd9f0a3addd8e78c67941ab5d238443005a32',
             'ffffe5f7fcb9d9f0a3addd8e78c67941ab5d238443005a32',
-            'ffffe5f7fcb9d9f0a3addd8e78c67941ab5d238443006837004529',
+            'ffffe5f7fcb9d9f0a3addd8e78c67941ab5d238443006837004529'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17802,7 +17924,7 @@
             'ffffccc7e9b47fcdbb41b6c42c7fb8253494',
             'ffffccc7e9b47fcdbb41b6c41d91c0225ea80c2c84',
             'ffffd9edf8b1c7e9b47fcdbb41b6c41d91c0225ea80c2c84',
-            'ffffd9edf8b1c7e9b47fcdbb41b6c41d91c0225ea8253494081d58',
+            'ffffd9edf8b1c7e9b47fcdbb41b6c41d91c0225ea8253494081d58'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17822,7 +17944,7 @@
             'ffffd4fee391fec44ffe9929d95f0e993404',
             'ffffd4fee391fec44ffe9929ec7014cc4c028c2d04',
             'ffffe5fff7bcfee391fec44ffe9929ec7014cc4c028c2d04',
-            'ffffe5fff7bcfee391fec44ffe9929ec7014cc4c02993404662506',
+            'ffffe5fff7bcfee391fec44ffe9929ec7014cc4c02993404662506'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17842,7 +17964,7 @@
             'ffffb2fed976feb24cfd8d3cf03b20bd0026',
             'ffffb2fed976feb24cfd8d3cfc4e2ae31a1cb10026',
             'ffffccffeda0fed976feb24cfd8d3cfc4e2ae31a1cb10026',
-            'ffffccffeda0fed976feb24cfd8d3cfc4e2ae31a1cbd0026800026',
+            'ffffccffeda0fed976feb24cfd8d3cfc4e2ae31a1cbd0026800026'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17862,7 +17984,7 @@
             'eff3ffc6dbef9ecae16baed63182bd08519c',
             'eff3ffc6dbef9ecae16baed64292c62171b5084594',
             'f7fbffdeebf7c6dbef9ecae16baed64292c62171b5084594',
-            'f7fbffdeebf7c6dbef9ecae16baed64292c62171b508519c08306b',
+            'f7fbffdeebf7c6dbef9ecae16baed64292c62171b508519c08306b'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17882,7 +18004,7 @@
             'edf8e9c7e9c0a1d99b74c47631a354006d2c',
             'edf8e9c7e9c0a1d99b74c47641ab5d238b45005a32',
             'f7fcf5e5f5e0c7e9c0a1d99b74c47641ab5d238b45005a32',
-            'f7fcf5e5f5e0c7e9c0a1d99b74c47641ab5d238b45006d2c00441b',
+            'f7fcf5e5f5e0c7e9c0a1d99b74c47641ab5d238b45006d2c00441b'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17902,7 +18024,7 @@
             'f7f7f7d9d9d9bdbdbd969696636363252525',
             'f7f7f7d9d9d9bdbdbd969696737373525252252525',
             'fffffff0f0f0d9d9d9bdbdbd969696737373525252252525',
-            'fffffff0f0f0d9d9d9bdbdbd969696737373525252252525000000',
+            'fffffff0f0f0d9d9d9bdbdbd969696737373525252252525000000'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17922,7 +18044,7 @@
             'feeddefdd0a2fdae6bfd8d3ce6550da63603',
             'feeddefdd0a2fdae6bfd8d3cf16913d948018c2d04',
             'fff5ebfee6cefdd0a2fdae6bfd8d3cf16913d948018c2d04',
-            'fff5ebfee6cefdd0a2fdae6bfd8d3cf16913d94801a636037f2704',
+            'fff5ebfee6cefdd0a2fdae6bfd8d3cf16913d94801a636037f2704'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17942,7 +18064,7 @@
             'f2f0f7dadaebbcbddc9e9ac8756bb154278f',
             'f2f0f7dadaebbcbddc9e9ac8807dba6a51a34a1486',
             'fcfbfdefedf5dadaebbcbddc9e9ac8807dba6a51a34a1486',
-            'fcfbfdefedf5dadaebbcbddc9e9ac8807dba6a51a354278f3f007d',
+            'fcfbfdefedf5dadaebbcbddc9e9ac8807dba6a51a354278f3f007d'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)
@@ -17962,7 +18084,7 @@
             'fee5d9fcbba1fc9272fb6a4ade2d26a50f15',
             'fee5d9fcbba1fc9272fb6a4aef3b2ccb181d99000d',
             'fff5f0fee0d2fcbba1fc9272fb6a4aef3b2ccb181d99000d',
-            'fff5f0fee0d2fcbba1fc9272fb6a4aef3b2ccb181da50f1567000d',
+            'fff5f0fee0d2fcbba1fc9272fb6a4aef3b2ccb181da50f1567000d'
           )
           .map(r.a)
       n.a = e.i(i.a)(a)

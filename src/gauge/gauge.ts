@@ -15,7 +15,7 @@ import { paramChecker } from './param-checker'
  */
 export function arcColorsModifier(
   arcDelimiters: number[],
-  arcColors: string[],
+  arcColors: string[]
 ) {
   if (arcDelimiters.length > arcColors.length - 1) {
     let colorDiff = arcDelimiters.length - arcColors.length + 1
@@ -69,7 +69,7 @@ export function arcOutline(
   paddingColor: string,
   arcLabels: string[],
   arcLabelFontSize: number,
-  labelsFont: string,
+  labelsFont: string
 ) {
   arcColors.forEach((color, i) => {
     let startAngle = perc2RadWithShift(i ? arcDelimiters[i - 1] : 0)
@@ -91,7 +91,7 @@ export function arcOutline(
           (chartHeight + offset * 2) +
           ', ' +
           (chartHeight + offset) +
-          ')',
+          ')'
       )
 
     if (arcOverEffect) {
@@ -112,7 +112,7 @@ export function arcOutline(
             (chartHeight + offset * 2) +
             ', ' +
             (chartHeight + offset) +
-            ')',
+            ')'
         )
 
       innerArc
@@ -159,12 +159,12 @@ export function arcOutline(
               centerY +
               ') ' +
               'rotate(' +
-              endAngle * 180 / Math.PI +
+              (endAngle * 180) / Math.PI +
               ', ' +
               0 +
               ',' +
               chartHeight * scale +
-              ')',
+              ')'
           )
       }
 
@@ -199,7 +199,7 @@ export function arcOutline(
         // endAngle = PI/2 => offset = 0
         let xPadding = 4
         let xOffset =
-          (endAngle - Math.PI / 2) / Math.PI * (size.width + xPadding)
+          ((endAngle - Math.PI / 2) / Math.PI) * (size.width + xPadding)
 
         // now place label
         svg
@@ -229,7 +229,7 @@ export function needleBaseOutline(
   offset: number,
   needleColor: string,
   centralLabel: string,
-  outerNeedle: boolean,
+  outerNeedle: boolean
 ) {
   // Different circle radiuses in the base of needle
   let innerGaugeRadius =
@@ -251,7 +251,7 @@ export function needleBaseOutline(
         (chartHeight + offset * 2) +
         ', ' +
         (chartHeight + offset) +
-        ')',
+        ')'
     )
     .attr('class', 'bar')
 }
@@ -274,7 +274,7 @@ export function needleOutline(
   outerRadius: number,
   centralLabel: string,
   outerNeedle: boolean,
-  needleStartValue: number,
+  needleStartValue: number
 ) {
   let needleValue = needleStartValue
   let needle = new Needle(
@@ -285,7 +285,7 @@ export function needleOutline(
     outerRadius,
     offset,
     needleColor,
-    outerNeedle,
+    outerNeedle
   )
   needle.setValue(needleValue)
   needle.getSelection()
@@ -311,7 +311,7 @@ export function labelOutline(
   rangeLabel: string[],
   centralLabel: string,
   rangeLabelFontSize: number,
-  labelsFont: string,
+  labelsFont: string
 ) {
   let arcWidth = chartHeight - outerRadius
 
@@ -326,17 +326,17 @@ export function labelOutline(
     ? areaWidth / 2 -
       outerRadius -
       arcWidth / 2 -
-      realRangeFontSize * rangeLabel[0].length / 2
+      (realRangeFontSize * rangeLabel[0].length) / 2
     : 0
   let rightRangeLabelOffsetX = rangeLabel[1]
     ? areaWidth / 2 +
       outerRadius +
       arcWidth / 2 -
-      realRangeFontSize * rangeLabel[1].length / 2
+      (realRangeFontSize * rangeLabel[1].length) / 2
     : 0
   let rangeLabelOffsetY = offset + chartHeight + realRangeFontSize * 2
   let centralLabelOffsetX =
-    areaWidth / 2 - realCentralFontSize * centralLabel.length / 2
+    areaWidth / 2 - (realCentralFontSize * centralLabel.length) / 2
   let centralLabelOffsetY = offset + chartHeight
 
   svg
@@ -382,7 +382,7 @@ export interface GaugeOptions {
 export function gaugeChart(
   element: Element,
   areaWidth: number,
-  gaugeOptions: GaugeOptions,
+  gaugeOptions: GaugeOptions
 ): GaugeInterface {
   let defaultGaugeOption = {
     hasNeedle: false,
@@ -448,7 +448,7 @@ export function gaugeChart(
     arcPaddingColor,
     arcLabels,
     arcLabelFontSize,
-    labelsFont,
+    labelsFont
   )
 
   let needle = null
@@ -461,7 +461,7 @@ export function gaugeChart(
       outerRadius,
       centralLabel,
       outerNeedle,
-      needleStartValue,
+      needleStartValue
     )
     needleBaseOutline(
       svg,
@@ -469,7 +469,7 @@ export function gaugeChart(
       offset,
       needleColor,
       centralLabel,
-      outerNeedle,
+      outerNeedle
     )
   }
 
@@ -482,7 +482,7 @@ export function gaugeChart(
     rangeLabel,
     centralLabel,
     rangeLabelFontSize,
-    labelsFont,
+    labelsFont
   )
 
   return new Gauge(svg, needleUpdateSpeed, needle)

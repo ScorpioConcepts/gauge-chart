@@ -6,7 +6,7 @@ export function delimiterRangeErrorChecker(chartDelimiters: number[]) {
     (chartDelimiters.slice(-1)[0] >= 100 || chartDelimiters[0] <= 0)
   ) {
     logger.error(
-      'Gauge-chart Error: gauge delimiters have to be LARGER than 0 and LESS than 100',
+      'Gauge-chart Error: gauge delimiters have to be LARGER than 0 and LESS than 100'
     )
     return false
   }
@@ -28,7 +28,7 @@ export function delimiterSortErrorChecker(chartDelimiters: number[]) {
 
 export function colorsLackWarnChecker(
   chartDelimiters: number[],
-  chartColors: string[],
+  chartColors: string[]
 ) {
   if (
     chartDelimiters &&
@@ -36,13 +36,13 @@ export function colorsLackWarnChecker(
     chartDelimiters.length > chartColors.length - 1
   )
     logger.warn(
-      'Gauge-chart Warning: list of colors is not complete, standard colors added to the chart',
+      'Gauge-chart Warning: list of colors is not complete, standard colors added to the chart'
     )
 }
 
 export function colorsExcessWarnChecker(
   chartDelimiters: number[],
-  chartColors: string[],
+  chartColors: string[]
 ) {
   if (
     chartDelimiters &&
@@ -50,28 +50,28 @@ export function colorsExcessWarnChecker(
     chartDelimiters.length < chartColors.length - 1
   )
     logger.warn(
-      'Gauge-chart Warning: list of colors exceeds number of slices, therefore it was shortened',
+      'Gauge-chart Warning: list of colors exceeds number of slices, therefore it was shortened'
     )
 }
 
 export function needleValueWarnChecker(needleValue: number) {
   if (needleValue < 0 || needleValue > 100)
     logger.warn(
-      'Gauge-chart Warning: value of needdle is less that 0 or larger than 100',
+      'Gauge-chart Warning: value of needdle is less that 0 or larger than 100'
     )
 }
 
 export function rangeLabelNumberWarnChecker(rangeLabel: string[]) {
   if (rangeLabel.length > 2)
     logger.warn(
-      'Gauge-chart Warning: number of range label parameters is bigger than 2',
+      'Gauge-chart Warning: number of range label parameters is bigger than 2'
     )
 }
 
 export function warnChecker(
   chartDelimiters: number[],
   chartColors,
-  rangeLabel: string[],
+  rangeLabel: string[]
 ) {
   colorsLackWarnChecker(chartDelimiters, chartColors)
   colorsExcessWarnChecker(chartDelimiters, chartColors)
@@ -97,7 +97,7 @@ export function errorChecker(chartDelimiters: number[]) {
 export function paramChecker(
   chartDelimiters: number[],
   chartColors: string[],
-  rangeLabel: string[],
+  rangeLabel: string[]
 ) {
   warnChecker(chartDelimiters, chartColors, rangeLabel)
   return errorChecker(chartDelimiters)
